@@ -1,0 +1,83 @@
+body{
+    background-color:#070709;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+/*esto esta en la cabeza y sirve para alinear dos titulos Y la posicion */
+.logo {
+    vertical-align: middle;  /* la imagen se alinea con el texto */
+    display: inline-block;
+    width: 45px;
+    border-radius: 20%; /* hace que quede un círculo */
+}
+.cineword {
+    font-size: 3em;
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #121312;
+}
+
+
+.divcabeza h2 {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.cabeza {
+    position: fixed;
+    top: 0;
+    left: 150px;
+    width: 750px;
+    height:75px ;
+    background-color: #ad0013;
+    border: 1px solid #00171f;
+    display: flex;              /* activa flexbox */
+    justify-content: center;    /* centra horizontal */
+    align-items: center;        /* centra vertical */
+
+}
+/* perfil */
+.perfil{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 75px;
+    background-color: #ad0013;
+    border: 1px solid #00171f;
+
+}
+/*esto es para las distintas opciones*/
+.opciones {
+    position: fixed;
+    top: 76px;
+    left: 0;
+    width: 150px;
+    height: 400px;
+    background-color: #ad0013;
+    border: 1px solid #00171f;
+    color: #121312;
+
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.opciones h3{
+    text-align: center;
+    color: #121312;
+}
+.opciones a:hover{
+    color: #a67d43;
+}
+/*css de main*/
+.main {
+    top: 90px;
+    left: 150px;
+    position: fixed;
+}
+.main a:hover {
+    font-size: 1.4em;
+}
