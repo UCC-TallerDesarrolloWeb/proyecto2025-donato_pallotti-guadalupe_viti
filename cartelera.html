@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cartelera</title>
+    <link rel="stylesheet" type="text/css" href="cartelera.css">
+    <link rel="stylesheet" type="text/css" href="general.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+</head>
+<body class="grid-container">
+<header class="cabeza">
+    <h2 class="cineword">Cartelera</h2>
+    <a href="index.html"><h2 class="cineword">Cine World</h2></a>
+    <a href="index.html" class="cineword"><img
+            src="imagenes/WhatsApp%20Image%202025-09-22%20at%2011.30.00_4f15e84f.jpg" alt="logo del cine"
+            class="logo"></a>
+    <div class="perfil">
+    <a href="index.html"><img src="imagenes/usuario.jpg" alt="foto de perfil" id="usuario"></a>
+    <span class="usuario"> <a href="">Perfil</a></span>
+    </div>
+</header>
+<nav class="menu">
+        <a href="index.html">
+            Principal
+        </a>
+        <a href="cartelera.html">
+            CARTELERA
+        </a>
+        <a href="">
+            COMPRAR ENTRADA
+        </a>
+        <a href="">
+            COMIDA
+        </a>
+</nav>
+<aside class="busqueda">
+    <div>
+        <form name="filtro">
+            <fieldset>
+                <legend>Bùsqueda</legend>
+                <label for="buscar">Buscar:</label>
+                <input type="text" name="buscar" id="buscar">
+            </fieldset>
+            <fieldset>
+                <legend>Genero</legend>
+                <p>
+                    <input type="checkbox" name="genero" id="comedia" value="comedia">
+                    <label for="comedia">Comedia</label>
+                </p>
+                <p>
+                    <input type="checkbox" name="genero" id="terror" value="terror">
+                    <label for="terror">Terror</label>
+                </p>
+                <p>
+                    <input type="checkbox" name="genero" id="romance" value="romance">
+                    <label for="romance">Romance</label>
+                </p>
+                <p>
+                    <input type="checkbox" name="genero" id="animacion" value="animacion">
+                    <label for="animacion">Animación</label>
+                </p>
+                <p>
+                    <input type="checkbox" name="genero" id="accion" value="accion">
+                    <label for="accion">Acción</label>
+                </p>
+                <p>
+                    <input type="checkbox" name="genero" id="fantasia" value="fantasia">
+                    <label for="fantasia">Fantasia</label>
+                </p>
+                <p>
+                    <input type="checkbox" name="genero" id="musical" value="musical">
+                    <label for="musical">Musical</label>
+                </p>
+                <p>
+                    <input type="checkbox" name="genero" id="suspenso" value="suspenso">
+                    <label for="suspenso">Suspenso</label>
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Estado</legend>
+                <p>
+                    <input type="checkbox" name="estado" id="estrenado" value="estrenado">
+                    <label for="estrenado">Estrenado</label>
+                </p>
+                <p>
+                    <input type="checkbox" name="estado" id="poe_estrenar" value="poe_estrenar">
+                    <label for="poe_estrenar">Próximamente</label>
+                </p>
+            </fieldset>
+        </form>
+    </div>
+</aside>
+<main class="contenido">
+    <div class="sections1">
+        <p class="cartelera">
+            ¿Cual va a ser nuestra próxim aventura?
+        </p>
+        <p class="tipos">
+            Cartelera
+        </p>
+    </div>
+    <div class="peliculas">
+        <div class="cartekera">
+            <img src="imagenes/avatar.jpg" alt="Avatar el camino del agua" id="avatar">
+            <h3>Avatar el camino del agua</h3>
+        </div>
+        <div class="cartekera">
+            <img src="imagenes/batalla.jpg" alt="Una batalla tras otra" id="batalla">
+            <h3>Una batalla tras otra</h3>
+        </div>
+        <div class="cartekera">
+            <img src="imagenes/camina.jpg" alt="Camina o muere" id="camina">
+            <h3>Camina o muere</h3>
+        </div>
+        <div class="cartekera">
+            <img src="imagenes/conjuro.jpg" alt="El conjuro 4" id="conjuro">
+            <h3>El conjuro 4</h3>
+        </div>
+        <div class="cartekera">
+            <img src="imagenes/demon.jpg" alt="Demon slayer, El castillo infinito" id="demon">
+            <h3>Demon slayer, El castillo infinito</h3>
+        </div>
+        <div class="cartekera">
+            <img src="imagenes/hamilton.jpg" alt="Hamilton" id="hamilton">
+            <h3>Hamilton</h3>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #070709;
+
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+/*esto esta en la cabeza y sirve para alinear dos titulos Y la posicion */
+.logo {
+    vertical-align: middle; /* la imagen se alinea con el texto */
+    display: inline-block;
+    width: 70px;
+    border-radius: 20%; /* hace que quede un círculo */
+}
+.cineword {
+    font-size: 3em;
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #121312;
+}
+.cabeza  h2 {
+    display: inline-block;
+    margin-right: 30px
+}
+.cabeza {
+
+    background-color: #f42c1d;
+    border: 1px solid #00171f;
+    display: flex; /* activa flexbox */
+    justify-content: center; /* centra horizontal */
+    align-items: center; /* centra vertical */
+    padding: 0 10px;
+}
+
+/* perfil */
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    right: 0;
+    margin-left: 20px;
+}
+
+.perfil img {
+    width: 50px;
+    height: 50px;
+    border-radius:50%;
+}
+.perfil span{
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+/*esto es para las distintas opciones*/
+.menu {
+    background-color: #f42c1d;
+    border: 1px solid #00171f;
+    color: #121312;
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center ;
+    font-size: 2em;
+}
+.menu a{
+    margin-right: 100px;
+}
+
+.menu a:hover {
+    color: #a67d43;
+}

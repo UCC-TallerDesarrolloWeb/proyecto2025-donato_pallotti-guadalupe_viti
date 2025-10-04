@@ -1,0 +1,65 @@
+/*diposicion de las cosas*/
+.cabeza {
+    grid-area: header;
+}
+
+.menu {
+    grid-area: nav;
+}
+.contenido {
+    grid-area: main;
+}
+.grid-container {
+    display: grid;
+    grid-template-areas:
+    "header header header header header header"
+    "nav nav nav nav nav nav "
+    "main main main main main main";
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*css de main*/
+.main{
+    text-align: center;
+}
+
+#main a:hover {
+    font-size: 1.4em;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+    text-decoration-color: #f42c1d;
+}
+
+#main h3 {
+    color: #f42c1d;
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+}
+
+#main h1 {
+    color: #f42c1d;
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+}
+/*ubicación de las imágenes */
+.promo img{
+    width: 100%;
+}
+.promo {
+    position: absolute;
+    width: 400px;
+    right: 15px;
+    bottom: 50px;
+}
+.anuncio img{
+    width: 100%;
+}
+.anuncio {
+    position: absolute;
+    width: 400px;
+    left: 15px;
+    bottom: 50px;
+}
