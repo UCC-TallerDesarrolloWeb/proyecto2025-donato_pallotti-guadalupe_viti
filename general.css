@@ -1,3 +1,4 @@
+/*general scc*/
 body {
     margin: 0;
     padding: 0;
@@ -22,11 +23,11 @@ a {
     font-style: normal;
     color: #121312;
 }
-.cabeza  h2 {
+header  h2 {
     display: inline-block;
     margin-right: 30px
 }
-.cabeza {
+header {
 
     background-color: #f42c1d;
     border: 1px solid #00171f;
@@ -57,7 +58,7 @@ a {
     font-style: normal;
 }
 /*esto es para las distintas opciones*/
-.menu {
+nav {
     background-color: #f42c1d;
     border: 1px solid #00171f;
     color: #121312;
@@ -67,10 +68,176 @@ a {
     text-align: center ;
     font-size: 2em;
 }
-.menu a{
+nav a{
     margin-right: 100px;
 }
 
-.menu a:hover {
+nav a:hover {
     color: #a67d43;
 }
+
+/*fin general*/
+/*index*/
+/*diposicion de las cosas*/
+.cabezaind {
+    grid-area: header;
+}
+
+.menuind {
+    grid-area: nav;
+}
+.contenidoind {
+    grid-area: main;
+}
+.grid-container {
+    display: grid;
+    grid-template-areas:
+    "header header header header header header"
+    "nav nav nav nav nav nav "
+    "main main main main main main";
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*css de main*/
+.dondeir{
+    text-align: center;
+}
+
+#dondeir a:hover {
+    font-size: 1.4em;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+    text-decoration-color: #f42c1d;
+}
+
+#dondeir h3 {
+    color: #f42c1d;
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+}
+
+#dondeir h1 {
+    color: #f42c1d;
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+}
+/*ubicación de las imágenes */
+.promo img{
+    width: 100%;
+}
+.promo {
+    position: absolute;
+    width: 400px;
+    right: 15px;
+    bottom: 50px;
+}
+.anuncio img{
+    width: 100%;
+}
+.anuncio {
+    position: absolute;
+    width: 400px;
+    left: 15px;
+    bottom: 50px;
+}
+/*fin index*/
+/*cartelera*/
+/*diposicion de las cosas*/
+.cabezacar {
+    grid-area: header;
+}
+
+.menucar {
+    grid-area: nav;
+}
+
+.busquedacar {
+    grid-area: aside;
+}
+
+.contenidocar {
+    grid-area: main;
+}
+
+.grid-container2 {
+    display: grid;
+    grid-template-areas:
+    "header header header header header header"
+    "nav nav nav nav nav nav "
+    "aside main main main main main";
+    font-family: Arial, Helvetica, sans-serif;
+    gap: 0;
+
+}
+
+/*aside*/
+.busquedacar {
+    background-color: #f42c1d;
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+    height: 100%;
+
+}
+
+fieldset {
+    border: 2px solid #070709;
+}
+/* estilos de texto */
+.cartelera {
+    color: #f42c1d;
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    font-size: 2em;
+}
+
+.tipos {
+    color: #f42c1d;
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5em;
+}
+
+/*main*/
+
+h3 {
+    color: #f42c1d;
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*mejoramiento de la pocicion de las pelis*/
+.peliculas {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.produ {
+    width: 350px;
+    border: 1px solid #f42c1d;
+    margin: 5px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.peliculas img {
+    width: 100%;
+}
+
+/* boton */
+
+button{
+    background-color: #070709;
+}
+/*fin cartelera*/
+/*carrito*/
+
+/*fin carrito*/
