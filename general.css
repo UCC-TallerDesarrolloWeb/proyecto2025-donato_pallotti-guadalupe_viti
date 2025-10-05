@@ -1,4 +1,5 @@
 /*general scc*/
+
 body {
     margin: 0;
     padding: 0;
@@ -218,7 +219,13 @@ h3 {
     display: grid;
     grid-template-columns: auto auto auto;
 }
-
+.peliculas2 {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.peliculas2 img {
+    width: 100%;
+}
 .produ {
     width: 350px;
     border: 1px solid #f42c1d;
@@ -231,7 +238,9 @@ h3 {
 .peliculas img {
     width: 100%;
 }
-
+#mostrar-peliculas2 {
+    bottom: 0;
+}
 /* boton */
 
 button{
@@ -239,5 +248,102 @@ button{
 }
 /*fin cartelera*/
 /*carrito*/
+.carri{
+    grid-area: header;
+}
+.mecarri{
+    grid-area: nav;
+}
 
+/*main*/
+.maincarri h2{
+    color: #f42c1d;
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
+.maincarri h2{
+    color: #f42c1d;
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
+
+.contenedor .produ {
+    width: 500px;
+    border: 2px solid #f42c1d;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.contenedor .produ img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.contenedor .produ h3,
+.contenedor .produ p {
+    color: #f42c1d;
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.maincarri .total{
+    color: #f42c1d;
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+}
+#total{
+    width: 50px;
+    bottom: 0;
+    border: 1px solid #f42c1d;
+}
+.botonpagar {
+    display: inline-block;
+    padding: 10px 16px;
+    text-decoration: none;
+    background: #f42c1d;
+    color: #070709;
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+    border-radius: 6px;
+}
+.botonpagar:hover { opacity: 0.9; }
 /*fin carrito*/
+
+/*Para el inicio de sesion*/
+.input {
+  display: block;
+  margin: 10px auto;
+  padding: 8px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+button {
+  margin: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 4px;
+}
+button:hover {
+  background-color: #45a049;
+}
+.perfil{
+  margin-top: 40px;
+}
+
+/*Para el perfil*/
+#info{
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}

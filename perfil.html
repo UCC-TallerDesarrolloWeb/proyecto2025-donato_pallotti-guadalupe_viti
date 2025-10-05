@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Perfil</title>
+    <link rel="stylesheet" href="general.css" />
+  </head>
+  <body>
+    <header class="cabezaind">
+      <h2 class="cineword">Perfil</h2>
+      <a href="principal.html"><h2 class="cineword">Cine World</h2></a>
+      <a href="Principal.html" class="cineword"
+        ><img
+          src="imagenes/WhatsApp%20Image%202025-09-22%20at%2011.30.00_4f15e84f.jpg"
+          alt="logo del cine"
+          class="logo"
+      /></a>
+      <div class="perfil">
+        <a href="perfil.html"
+          ><img src="imagenes/usuario.jpg" alt="foto de perfil" id="usuario"
+        /></a>
+        <span class="usuario"> <a href="">Perfil</a></span>
+      </div>
+    </header>
+    <h1>Mi perfil</h1>
+    <div id="info"></div>
+    <button onclick="cerrarSesion()">Cerrar sesión</button>
+
+    <script>
+      const usuario = JSON.parse(localStorage.getItem("usuario"));
+      const sesionActiva = localStorage.getItem("sesionActiva");
+
+      // Verificar que exista sesión y datos del usuario
+      if (!sesionActiva || !usuario) {
+        window.location.href = "index.html";
+      } else {
+        document.getElementById("info").innerHTML = `
+        <p><strong>Nombre:</strong> ${usuario.nombre}</p>
+        <p><strong>Email:</strong> ${usuario.email}</p>
+        <p><strong>Fecha de nacimiento:</strong> ${usuario.fechaNacimiento}</p>
+      `;
+      }
+
+      function cerrarSesion() {
+        localStorage.removeItem("sesionActiva");
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>
