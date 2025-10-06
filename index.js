@@ -96,6 +96,129 @@ const productos1 = [
     },
 ];
 
+const comida = [
+    {
+        nombre: "Nachos",
+        description: "nachos con aderezo",
+        precio: 5000,
+        imagen: "nachos.jpg",
+    },
+    {
+        nombre: "Pororo grande",
+        description: "balde grande",
+        precio: 5000,
+        imagen: "pororogrande.jpg",
+
+    },
+    {
+        nombre: "Pororo medio",
+        description: "balde mediano",
+        precio: 5000,
+        imagen: "pororomedio.jpg",
+    },
+];
+const comida2 = [
+    {
+        nombre: "M&M",
+        description: "Bolsa con M&M" ,
+        precio: 500,
+        imagen: "mym.jpg",
+    },
+    {
+        nombre: "Skittles",
+        description: "Bolsa con Skittles" ,
+        precio: 500,
+        imagen: "Skittles.jpg",
+
+    },
+];
+const comida3 = [
+    {
+        nombre: "Botella de agua",
+        description: "Botella con agua",
+        precio: 500,
+        imagen: "agua.jpg",
+    },
+    {
+        nombre: "Vaso",
+        description: "Vaso grande con gaseosa",
+        precio: 5000,
+        imagen: "baso.jpg",
+
+    },
+];
+const comida4 = [
+    {
+        nombre: "Promo grande",
+        description: "2 baldes de pororo, 4 Vasos grandes",
+        precio: 5599,
+        imagen: "promogrande.jpg",
+    },
+    {
+        nombre: "Promo media",
+        description: "Baso grande con nachos",
+        precio: 5000,
+        imagen: "promomedia.jpg",
+
+    },
+];
+
+let cargarcomida = (prod = comida) => {
+    let contenido = "";
+
+    prod.forEach((prod, id) => {
+        contenido += `<div class="com">
+        <button type="button" onClick="ComidaAlCarrito(${id})">
+             <img src="imagenes/${prod.imagen}" alt="${prod.nombre}"/>
+        </button>
+        <h3>${prod.nombre}</h3>
+        <p>${prod.precio}</p>
+    </div>`;
+    });
+    document.getElementById("mostrar-comida").innerHTML = contenido;
+};
+let cargarcomida2 = (prod = comida2) => {
+    let contenido = "";
+
+    prod.forEach((prod, id) => {
+        contenido += `<div class="com">
+        <button type="button" onClick="ComidaAlCarrito2(${id})">
+             <img src="imagenes/${prod.imagen}" alt="${prod.nombre}"/>
+        </button>
+        <h3>${prod.nombre}</h3>
+        <p>${prod.precio}</p>
+    </div>`;
+    });
+    document.getElementById("mostrar-comida4").innerHTML = contenido;
+};
+let cargarcomida3 = (prod = comida3) => {
+    let contenido = "";
+
+    prod.forEach((prod, id) => {
+        contenido += `<div class="com">
+        <button type="button" onClick="ComidaAlCarrito3(${id})">
+             <img src="imagenes/${prod.imagen}" alt="${prod.nombre}"/>
+        </button>
+        <h3>${prod.nombre}</h3>
+        <p>${prod.precio}</p>
+    </div>`;
+    });
+    document.getElementById("mostrar-comida2").innerHTML = contenido;
+};
+let cargarcomida4 = (prod = comida4) => {
+    let contenido = "";
+
+    prod.forEach((prod, id) => {
+        contenido += `<div class="com">
+        <button type="button" onClick="ComidaAlCarrito4(${id})">
+             <img src="imagenes/${prod.imagen}" alt="${prod.nombre}"/>
+        </button>
+        <h3>${prod.nombre}</h3>
+        <p>${prod.precio}</p>
+    </div>`;
+    });
+    document.getElementById("mostrar-comida3").innerHTML = contenido;
+};
 /**
  * @method cargarpelis
  * @param {Array<Object>} prod - Arreglo de productos/películas a mostrar.
@@ -165,184 +288,522 @@ let agregarAlCarrito2 = (id) => {
     localStorage.setItem("peliculaSeleccionada", JSON.stringify(peli));
 };
 
-/**
- * @method mostrarCarritoCompleto
- * @description Carga y muestra en pantalla el contenido completo del carrito:
- *              - La película seleccionada (si existe).
- *              - La comida seleccionada (si existe).
- *              También calcula el total a pagar sumando los precios de ambos.
- * @return {void} No devuelve valor. Modifica el DOM directamente.
- */
-/**
- * @method mostrarCarritoCompleto
- * @description Muestra la película seleccionada, la comida (si hay),
- *              permite elegir cuántas entradas quiere el usuario
- *              y calcula el total a pagar.
- * @return {void}
- */
-let mostrarCarritoCompleto = () => {
+function agregarComidaAlCarrito(item) {
+    let carritoComidas = JSON.parse(localStorage.getItem("carritoComidas")) || [];
+
+    // Si ya existe la comida, aumentar cantidad
+    const existente = carritoComidas.find(c => c.nombre === item.nombre);
+    if (existente) {
+        existente.cantidad++;
+    } else {
+        item.cantidad = 1;
+        carritoComidas.push(item);
+    }
+
+    localStorage.setItem("carritoComidas", JSON.stringify(carritoComidas));
+    alert(`${item.nombre} se agregó al carrito 🍿`);
+}
+
+// Estas son las funciones llamadas desde comida.html
+function ComidaAlCarrito(id) {
+    agregarComidaAlCarrito(comida[id]);
+}
+function ComidaAlCarrito2(id) {
+    agregarComidaAlCarrito(comida2[id]);
+}
+function ComidaAlCarrito3(id) {
+    agregarComidaAlCarrito(comida3[id]);
+}
+function ComidaAlCarrito4(id) {
+    agregarComidaAlCarrito(comida4[id]);
+}
+
+
+function mostrarCarritoCompleto() {
     const peli = JSON.parse(localStorage.getItem("peliculaSeleccionada"));
-    const comida = JSON.parse(localStorage.getItem("comidaSeleccionada"));
+    const carritoComidas = JSON.parse(localStorage.getItem("carritoComidas")) || [];
 
     let total = 0;
-    let contenido = "";
-
-    // Si hay una película seleccionada, mostrarla con selector de cantidad
-    if (peli) {
-        contenido += `
-        <div class="produ">
-            <img src="imagenes/${peli.imagen}" alt="${peli.nombre}">
-            <h3>${peli.nombre}</h3>
-            <p>${peli.description}</p>
-            <p>Precio unitario: $${peli.precio}</p>
-
-            <label for="cantidad">Cantidad de entradas:</label>
-            <input type="number" id="cantidad" min="1" value="1" style="width:60px;">
-
-            <p id="subtotal">Subtotal: $${peli.precio}</p>
-        </div>`;
-        total += peli.precio;
-    }
-
-    // Si hay comida seleccionada, mostrarla
-    if (comida) {
-        contenido += `
-        <div class="produ">
-            <img src="imagenes/${comida.imagen}" alt="${comida.nombre}">
-            <h3>${comida.nombre}</h3>
-            <p>${comida.description}</p>
-            <p>Precio: $${comida.precio1}</p>
-        </div>`;
-        total += comida.precio1;
-    }
-
-    // Mostrar la información en el HTML
-    const contenedor = document.querySelector(".informacionpeli");
-    contenedor.innerHTML = contenido;
-
-    // Mostrar el total inicial
+    const contenedorPeli = document.querySelector(".informacionpeli");
+    const contenedorComida = document.querySelector(".informacioncomida");
     const totalContenedor = document.getElementById("total-pagar");
-    totalContenedor.innerHTML = `<h3>Total a pagar: $${total}</h3>`;
 
-    // Si hay película, agregar comportamiento al input de cantidad
+    contenedorPeli.innerHTML = "";
+    contenedorComida.innerHTML = "";
+
+    // --- Mostrar película ---
     if (peli) {
-        const inputCantidad = document.getElementById("cantidad");
-        const subtotalElem = document.getElementById("subtotal");
+        contenedorPeli.innerHTML = `
+            <div class="produ">
+                <img src="imagenes/${peli.imagen}" alt="${peli.nombre}">
+                <h3>${peli.nombre}</h3>
+                <p>${peli.description}</p>
+                <p>Precio unitario: $${peli.precio}</p>
+                <label>Cantidad de entradas:</label>
+                <input type="number" id="cantidadEntradas" min="1" value="1" style="width:60px;">
+                <p id="subtotalPeli">Subtotal: $${peli.precio}</p>
+            </div>`;
+        total += peli.precio;
 
-        inputCantidad.addEventListener("input", () => {
-            let cantidad = parseInt(inputCantidad.value);
-            if (isNaN(cantidad) || cantidad < 1) cantidad = 1;
-
-            const subtotal = peli.precio * cantidad;
-            subtotalElem.textContent = `Subtotal: $${subtotal}`;
-
-            // Recalcular total general (película + comida)
-            let nuevoTotal = subtotal + (comida ? comida.precio1 : 0);
-            totalContenedor.innerHTML = `<h3>Total a pagar: $${nuevoTotal}</h3>`;
+        // actualizar total si cambia cantidad
+        const inputCant = document.getElementById("cantidadEntradas");
+        const subtotalPeli = document.getElementById("subtotalPeli");
+        inputCant.addEventListener("input", () => {
+            let cant = parseInt(inputCant.value);
+            if (isNaN(cant) || cant < 1) cant = 1;
+            const sub = peli.precio * cant;
+            subtotalPeli.textContent = `Subtotal: $${sub}`;
+            actualizarTotal();
         });
     }
-};
 
-// Ejecutar al cargar la página
-window.onload = mostrarCarritoCompleto;
+    // --- Mostrar comidas ---
+    if (carritoComidas.length > 0) {
+        carritoComidas.forEach((item, index) => {
+            const subtotal = item.precio * item.cantidad;
+            total += subtotal;
 
+            const div = document.createElement("div");
+            div.classList.add("produ");
+            div.innerHTML = `
+                <img src="imagenes/${item.imagen}" alt="${item.nombre}">
+                <h3>${item.nombre}</h3>
+                <p>${item.description}</p>
+                <p>Precio unitario: $${item.precio}</p>
+                <label>Cantidad:</label>
+                <input type="number" min="1" value="${item.cantidad}" data-index="${index}" class="cantidadComida" style="width:60px;">
+                <p class="subtotalComida">Subtotal: $${subtotal}</p>
+                <button class="btnQuitar" data-index="${index}">Quitar</button>
+            `;
+            contenedorComida.appendChild(div);
+        });
+    } else {
+        contenedorComida.innerHTML = "<p id='nohaynada'>No agregaste comida todavía </p>";
+    }
+
+    totalContenedor.innerHTML = `<h3>Total a pagar: $${total}</h3>`;
+
+    // --- Eventos: actualizar cantidades o quitar ---
+    document.querySelectorAll(".cantidadComida").forEach(input => {
+        input.addEventListener("input", e => {
+            let cant = parseInt(e.target.value);
+            if (isNaN(cant) || cant < 1) cant = 1;
+
+            const idx = e.target.dataset.index;
+            carritoComidas[idx].cantidad = cant;
+            localStorage.setItem("carritoComidas", JSON.stringify(carritoComidas));
+            mostrarCarritoCompleto();
+        });
+    });
+
+    document.querySelectorAll(".btnQuitar").forEach(btn => {
+        btn.addEventListener("click", e => {
+            const idx = e.target.dataset.index;
+            carritoComidas.splice(idx, 1);
+            localStorage.setItem("carritoComidas", JSON.stringify(carritoComidas));
+            mostrarCarritoCompleto();
+        });
+    });
+
+    // --- Función auxiliar para recalcular total ---
+    function actualizarTotal() {
+        let totalFinal = 0;
+        if (peli) {
+            const cant = parseInt(document.getElementById("cantidadEntradas").value);
+            totalFinal += peli.precio * (isNaN(cant) ? 1 : cant);
+        }
+        carritoComidas.forEach(c => {
+            totalFinal += c.precio * c.cantidad;
+        });
+        totalContenedor.innerHTML = `<h3>Total a pagar: $${totalFinal}</h3>`;
+    }
+}
+
+/**
+ * @method filtrarProductos
+ * @description Filtra las películas según la palabra ingresada en el campo de búsqueda
+ *              y/o los géneros seleccionados. Mantiene la separación visual entre las secciones
+ *              "En estreno" (productos) y "Próximamente" (productos1), mostrando cada película
+ *              en su contenedor correspondiente.
+ *
+ * @returns {void} No devuelve valor; actualiza dinámicamente el contenido del DOM mostrando
+ *                 solo las películas que coinciden con los filtros aplicados.
+ *
+ * @example
+ * // Si el usuario escribe "acción" y selecciona el género "Acción":
+ * // se mostrarán las películas de ese género tanto en estrenos como en próximamente,
+ * // cada una en su sección correspondiente.
+ */
 let filtrarProductos = () => {
     let searchWord = document.getElementById("buscar").value.trim().toLowerCase();
 
-    // Combinar ambos arreglos
-    let todos = [...productos, ...productos1];
-    let filtrados = todos;
+    // Crear copias de los arreglos originales
+    let estrenos = [...productos];
+    let proximamente = [...productos1];
 
-    // Filtrar por búsqueda
+    // Función auxiliar para filtrar según palabra y género
+    const aplicarFiltros = (lista) => {
+        let filtrada = [...lista];
+
+        // Filtrar por texto (nombre o descripción)
+        if (searchWord) {
+            filtrada = filtrada.filter(
+                (p) =>
+                    p.nombre.toLowerCase().includes(searchWord) ||
+                    p.description.toLowerCase().includes(searchWord)
+            );
+        }
+
+        // Filtrar por género
+        const generos = Array.from(document.querySelectorAll("input[name='genero']:checked"))
+            .map((g) => g.value.toLowerCase());
+
+        if (generos.length > 0) {
+            filtrada = filtrada.filter((p) => generos.includes(p.genero.toLowerCase()));
+        }
+
+        return filtrada;
+    };
+
+    // Aplicar filtros a ambas listas
+    const filtradosEstreno = aplicarFiltros(estrenos);
+    const filtradosProximamente = aplicarFiltros(proximamente);
+
+    // Limpiar los contenedores antes de mostrar
+    const mostrarPeliculas = document.getElementById("mostrar-peliculas");
+    const mostrarPeliculas2 = document.getElementById("mostrar-peliculas2");
+
+    mostrarPeliculas.innerHTML = "";
+    mostrarPeliculas2.innerHTML = "";
+
+    // Renderizar estrenos filtrados
+    if (filtradosEstreno.length > 0) {
+        filtradosEstreno.forEach((p, id) => {
+            const html = `
+                <div class="produ">
+                    <button type="button" onClick="agregarAlCarrito(${id})">
+                        <img src="imagenes/${p.imagen}" alt="${p.nombre}"/>
+                    </button>
+                    <h3>${p.nombre}</h3>
+                </div>`;
+            mostrarPeliculas.innerHTML += html;
+        });
+    } else {
+        mostrarPeliculas.innerHTML = `<p id="nohaynada">No hay películas de estreno que coincidan.</p>`;
+    }
+
+    // Renderizar próximas filtradas
+    if (filtradosProximamente.length > 0) {
+        filtradosProximamente.forEach((p, id) => {
+            const html = `
+                <div class="produ">
+                    <button type="button" onClick="agregarAlCarrito2(${id})">
+                        <img src="imagenes/${p.imagen}" alt="${p.nombre}"/>
+                    </button>
+                    <h3>${p.nombre}</h3>
+                </div>`;
+            mostrarPeliculas2.innerHTML += html;
+        });
+    } else {
+        mostrarPeliculas2.innerHTML = `<p id="nohaynada">No hay películas próximamente que coincidan.</p>`;
+    }
+};
+
+/**
+ * @method filtrarComida
+ * @description Filtra los productos de comida, dulces, bebidas y promociones según
+ *              el texto ingresado en el campo de búsqueda. Combina los cuatro arreglos
+ *              principales (`comida`, `comida2`, `comida3`, `comida4`) y actualiza
+ *              dinámicamente el contenido mostrado en el DOM.
+ *
+ * @returns {void} No devuelve valor; modifica directamente el contenido HTML de los
+ *                 contenedores de comida en la página `comida.html`.
+ */
+let filtrarComida = () => {
+    let searchWord = document.getElementById("buscar").value.trim().toLowerCase();
+
+    // Combinar los cuatro arreglos de comida
+    let todasLasComidas = [...comida, ...comida2, ...comida3, ...comida4];
+    let filtradas = todasLasComidas;
+
+    // Filtrar por búsqueda (nombre o descripción)
     if (searchWord) {
-        filtrados = filtrados.filter(
+        filtradas = filtradas.filter(
             (p) =>
                 p.nombre.toLowerCase().includes(searchWord) ||
                 p.description.toLowerCase().includes(searchWord)
         );
     }
 
-    // Filtrar por género
-    const generos = Array.from(document.querySelectorAll("input[name='genero']:checked"))
-        .map((g) => g.value.toLowerCase());
-    if (generos.length > 0) {
-        filtrados = filtrados.filter((p) => generos.includes(p.genero.toLowerCase()));
+    // Limpiar los contenedores existentes
+    document.getElementById("mostrar-comida").innerHTML = "";
+    document.getElementById("mostrar-comida2").innerHTML = "";
+    document.getElementById("mostrar-comida3").innerHTML = "";
+    document.getElementById("mostrar-comida4").innerHTML = "";
+
+    // Volver a renderizar los productos filtrados según el tipo original
+    filtradas.forEach((p) => {
+        const html = `
+            <div class="com">
+                <button type="button" onClick="agregarComidaAlCarrito({
+                    nombre: '${p.nombre}',
+                    description: '${p.description}',
+                    precio: ${p.precio},
+                    imagen: '${p.imagen}'
+                })">
+                    <img src="imagenes/${p.imagen}" alt="${p.nombre}"/>
+                </button>
+                <h3>${p.nombre}</h3>
+                <p>$${p.precio}</p>
+            </div>`;
+
+        // Mostrar según el grupo original
+        if (comida.find(c => c.nombre === p.nombre)) {
+            document.getElementById("mostrar-comida").innerHTML += html;
+        } else if (comida2.find(c => c.nombre === p.nombre)) {
+            document.getElementById("mostrar-comida4").innerHTML += html;
+        } else if (comida3.find(c => c.nombre === p.nombre)) {
+            document.getElementById("mostrar-comida2").innerHTML += html;
+        } else if (comida4.find(c => c.nombre === p.nombre)) {
+            document.getElementById("mostrar-comida3").innerHTML += html;
+        }
+    });
+};
+/* ---------- INICIO: funcionalidades de pago (copiar al final de index.js o en pago.js) ---------- */
+
+/**
+ * Lista simple de cupones válidos.
+ * Puedes editarla: {codigo: 'STRING', tipo: 'percent'|'fixed', valor: number, descripcion: ''}
+ */
+const CUponesValido = [
+    { codigo: 'DESCUENTO10', tipo: 'percent', valor: 10, descripcion: '10% de descuento' },
+    { codigo: 'CUPON500', tipo: 'fixed', valor: 500, descripcion: '$500 de descuento' },
+    { codigo: 'PROMO5', tipo: 'percent', valor: 5, descripcion: '5% de descuento' }
+];
+
+/**
+ * Calcula total del carrito leyendo localStorage y aplica cupón si existe.
+ * Actualiza el elemento #totalPagar en pago.html
+ */
+function sincronizarTotalEnPago() {
+    const peli = JSON.parse(localStorage.getItem("peliculaSeleccionada"));
+    const carritoComidas = JSON.parse(localStorage.getItem("carritoComidas")) || [];
+    // Si el carrito en la otra página guarda cantidad de entradas, usala. Si no, asumimos 1.
+    let cantidadEntradas = parseInt(localStorage.getItem("cantidadEntradas")) || 1;
+
+    let total = 0;
+    if (peli && typeof peli.precio === 'number') {
+        total += peli.precio * cantidadEntradas;
+    }
+    carritoComidas.forEach(item => {
+        // item.cantidad puede existir
+        const cant = parseInt(item.cantidad) || 1;
+        total += (item.precio || 0) * cant;
+    });
+
+    // Aplicar cupón guardado si existe
+    const cuponAplicado = JSON.parse(localStorage.getItem('cuponAplicado'));
+    let descuento = 0;
+    let mensajeCup = '';
+    if (cuponAplicado) {
+        if (cuponAplicado.tipo === 'percent') {
+            descuento = Math.round(total * (cuponAplicado.valor / 100));
+            mensajeCup = ` (${cuponAplicado.valor}% aplicado = -$${descuento})`;
+        } else if (cuponAplicado.tipo === 'fixed') {
+            descuento = cuponAplicado.valor;
+            mensajeCup = ` (-$${descuento})`;
+        }
+    }
+    const totalFinal = Math.max(0, total - descuento);
+
+    // Actualizar UI
+    const el = document.getElementById('totalPagar');
+    if (el) el.textContent = totalFinal;
+
+    // Opcional: mostrar detalle
+    const mensajeEl = document.getElementById('mensajeCupon');
+    if (mensajeEl && cuponAplicado) {
+        mensajeEl.textContent = `Cupón "${cuponAplicado.codigo}" aplicado${mensajeCup}. Total actualizado.`;
+    }
+}
+
+/**
+ * Aplicar cupón desde el input #cupon
+ */
+function aplicarCupon() {
+    const input = document.getElementById('cupon');
+    const mensajeEl = document.getElementById('mensajeCupon');
+    if (!input) return;
+    const codigo = input.value.trim().toUpperCase();
+    if (!codigo) {
+        if (mensajeEl) mensajeEl.textContent = 'Ingrese un código de cupón.';
+        return;
+    }
+    const encontrado = CUponesValido.find(c => c.codigo === codigo);
+    if (!encontrado) {
+        if (mensajeEl) mensajeEl.textContent = 'Cupón inválido.';
+        localStorage.removeItem('cuponAplicado');
+        sincronizarTotalEnPago();
+        return;
     }
 
-
-    const mostrarPeliculas = document.getElementById("mostrar-peliculas");
-
-    const mostrarPeliculas2 = document.getElementById("mostrar-peliculas2");
-
-    mostrarPeliculas.innerHTML = "";
-    mostrarPeliculas2.innerHTML = "";
-
-        filtrados.forEach((p) => {
-            const html = `
-                <div class="produ">
-                    <button type="button" onClick="agregarAlCarrito(${p.id || 0})">
-                        <img src="imagenes/${p.imagen}" alt="${p.nombre}"/>
-                    </button>
-                    <h3>${p.nombre}</h3>
-                </div>`;
-
-
-            mostrarPeliculas.innerHTML += html;
-        });
-};
-
-// El usuario ingresa todos los datos para poder registrarse
-function registrar() {
-  const nombre = document.getElementById("nombre").value;
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-  const fechaNacimiento = document.getElementById("fechaNacimiento").value;
-
-  if (!nombre || !email || !password || !fechaNacimiento) {
-    alert("Por favor completa todos los campos");
-    return;
-  }
-
-  // Guardamos los datos del usuario en localStorage
-  const usuario = { nombre, email, password, fechaNacimiento };
-  localStorage.setItem("usuario", JSON.stringify(usuario));
-  alert("Usuario registrado correctamente");
+    // Guardar cupón aplicado
+    localStorage.setItem('cuponAplicado', JSON.stringify(encontrado));
+    if (mensajeEl) mensajeEl.textContent = `Cupón "${encontrado.codigo}" válido: ${encontrado.descripcion}.`;
+    sincronizarTotalEnPago();
 }
 
-//Una vez registrado, comparamos que los datos sean correctos para permitir que ingrese sesion
-function iniciarSesion() {
-  const email = document.getElementById("loginEmail").value;
-  const password = document.getElementById("loginPassword").value;
-  const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
-
-  if (!usuarioGuardado) {
-    alert("No hay usuarios registrados");
-    return;
-  }
-
-  if (email === usuarioGuardado.email && password === usuarioGuardado.password) {
-    localStorage.setItem("sesionActiva", "true");
-    window.location.href = "principal.html";
-  } else {
-    alert("Email o contraseña incorrectos");
-  }
+/**
+ * Mostrar/ocultar formulario de tarjeta según select #formaPago
+ */
+function mostrarTarjeta() {
+    const select = document.getElementById('formaPago');
+    const datos = document.getElementById('datosTarjeta');
+    if (!select || !datos) return;
+    if (select.value === 'tarjeta') {
+        datos.style.display = 'block';
+    } else {
+        datos.style.display = 'none';
+    }
 }
 
-//perfil
-const usuario = JSON.parse(localStorage.getItem("usuario"));
-const sesionActiva = localStorage.getItem("sesionActiva");
+/* ----------------- Validadores de tarjeta ----------------- */
 
-if (!sesionActiva) {
-    window.location.href = "index.html";
+// Limpiar input dejando sólo dígitos
+function soloDigitosInput(el, maxLength) {
+    if (!el) return;
+    el.addEventListener('input', () => {
+        let v = el.value.replace(/\D/g, '');
+        if (maxLength) v = v.slice(0, maxLength);
+        el.value = v;
+    });
 }
 
-document.getElementById("info").innerHTML = `
-    <p><strong>Nombre:</strong> ${usuario.nombre}</p>
-    <p><strong>Email:</strong> ${usuario.email}</p>
-    <p><strong>Fecha de nacimiento:</strong> ${usuario.fechaNacimiento}</p>
-`;
-
-function cerrarSesion() {
-    localStorage.removeItem("sesionActiva");
-    window.location.href = "index.html";
+// Luhn algorithm para verificar número de tarjeta
+function luhnCheck(cardNumber) {
+    const s = cardNumber.replace(/\D/g, '');
+    let sum = 0;
+    let alt = false;
+    for (let i = s.length - 1; i >= 0; i--) {
+        let n = parseInt(s.charAt(i), 10);
+        if (alt) {
+            n *= 2;
+            if (n > 9) n -= 9;
+        }
+        sum += n;
+        alt = !alt;
+    }
+    return (sum % 10) === 0;
 }
+
+// Verificar fecha MM/AA no vencida
+function fechaValidaYNoVencida(mmYY) {
+    const m = mmYY.replace(/\s/g, '');
+    if (!/^\d{2}\/\d{2}$/.test(m)) return false;
+    const [mmStr, yyStr] = m.split('/');
+    const mm = parseInt(mmStr, 10);
+    const yy = parseInt(yyStr, 10);
+    if (mm < 1 || mm > 12) return false;
+
+    // Convertir a año completo: asumimos 20XX para 00-99 (ajustable)
+    const anio = 2000 + yy;
+    const fechaVenc = new Date(anio, mm, 1); // primer día del mes siguiente se considera vencido en el primer día del mes
+    // Tomar fin del mes como último instante válido: usaremos el primer día del siguiente mes menos 1ms.
+    const ahora = new Date();
+    // Considerar válido si final del mes >= hoy
+    // Para simplificar: comparamos año/mes
+    const ahoraYm = ahora.getFullYear() * 12 + (ahora.getMonth() + 1);
+    const vencYm = anio * 12 + mm;
+    return vencYm >= ahoraYm;
+}
+
+/**
+ * Confirmar compra: valida campos si es tarjeta, aplica lógica final y limpia (opcional)
+ */
+function confirmarCompra() {
+    const forma = document.getElementById('formaPago').value;
+    const mensajeEl = document.getElementById('mensajeCupon');
+
+    // Calcular total actual (para mostrar en confirm)
+    const totalActual = parseInt(document.getElementById('totalPagar').textContent) || 0;
+
+    if (!forma) {
+        alert('Seleccione una forma de pago.');
+        return;
+    }
+
+    if (forma === 'efectivo') {
+        // Flujo sencillo
+        alert(`Compra confirmada. Pagarás $${totalActual} en efectivo al retirar.`);
+        // Opcional: limpiar carrito
+        localStorage.removeItem('peliculaSeleccionada');
+        localStorage.removeItem('carritoComidas');
+        localStorage.removeItem('cantidadEntradas');
+        localStorage.removeItem('cuponAplicado');
+        window.location.href = 'index.html'; // redirigir a inicio
+        return;
+    }
+
+    // Si es tarjeta: validar campos
+    const num = document.getElementById('numTarjeta').value.replace(/\s/g,'');
+    const nombre = document.getElementById('nombreTarjeta').value.trim();
+    const venc = document.getElementById('vencimiento').value.trim();
+    const cvv = document.getElementById('cvv').value.trim();
+
+    if (!/^\d{13,19}$/.test(num)) {
+        alert('Número de tarjeta inválido: deben ser entre 13 y 19 dígitos solamente.');
+        return;
+    }
+    if (!luhnCheck(num)) {
+        alert('Número de tarjeta inválido (falló verificación Luhn).');
+        return;
+    }
+    if (!nombre || nombre.length < 2) {
+        alert('Ingrese el nombre tal como figura en la tarjeta.');
+        return;
+    }
+    if (!/^\d{2}\/\d{2}$/.test(venc) || !fechaValidaYNoVencida(venc)) {
+        alert('Fecha de vencimiento inválida o ya vencida. Use formato MM/AA.');
+        return;
+    }
+    if (!/^\d{3,4}$/.test(cvv)) {
+        alert('CVV inválido: deben ser 3 o 4 dígitos.');
+        return;
+    }
+
+    // Simular verificación de seguridad (EN PRODUCCION deberías llamar a un backend/servicio de pagos)
+    // Aquí sólo mostramos confirmación
+    alert(`Pago con tarjeta autorizado. Se cobró $${totalActual}. ¡Gracias por su compra!`);
+
+    // Limpiar carrito (opcional)
+    localStorage.removeItem('peliculaSeleccionada');
+    localStorage.removeItem('carritoComidas');
+    localStorage.removeItem('cantidadEntradas');
+    localStorage.removeItem('cuponAplicado');
+
+    // Redirigir o actualizar UI
+    window.location.href = 'index.html';
+}
+
+/* ----------------- Inicialización y eventos ----------------- */
+document.addEventListener('DOMContentLoaded', () => {
+    // Sincronizar total cuando entra a la página de pago
+    sincronizarTotalEnPago();
+
+    // Asignar listeners para inputs numéricos
+    const elNum = document.getElementById('numTarjeta');
+    const elCvv = document.getElementById('cvv');
+    soloDigitosInput(elNum, 19); // admite hasta 19 dígitos (VISA/Amex/etc)
+    soloDigitosInput(elCvv, 4);
+
+    // Limpiar/ocultar datos de tarjeta por defecto
+    mostrarTarjeta();
+
+    // Enlace botón aplicar cupón y confirmar compra si existen en DOM
+    const btnCupon = document.querySelector('.cupon .pago2');
+    if (btnCupon) btnCupon.addEventListener('click', aplicarCupon);
+    const btnConfirm = document.querySelector('.pago2[onclick="confirmarCompra()"]');
+    // en caso de que el botón tenga onclick inline, no necesitamos agregar otro listener; si quieres, lo puedes cambiar
+});
+
+/* ---------- FIN: funcionalidades de pago ---------- */

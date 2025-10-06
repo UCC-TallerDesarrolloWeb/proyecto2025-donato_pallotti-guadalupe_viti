@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Comida</title>
+    <meta name="description" content="Comida del cine">
+    <meta name="keywords" content="HTML,CSS,JavaScript">
+    <meta name="author" content="Donato Mariano Pallotti y Maria Guadalupe Viti">
+    <link rel="stylesheet" type="text/css" href="general.css">
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+</head>
+<body class="grid-container3" onload="cargarcomida(); cargarcomida2();cargarcomida3();cargarcomida4();">
+<header class="cabezacom">
+    <h2 class="cineword">Comida</h2>
+    <a href="index.html"><h2 class="cineword">Cine World</h2></a>
+    <a href="index.html" class="cineword"><img
+            src="imagenes/WhatsApp%20Image%202025-09-22%20at%2011.30.00_4f15e84f.jpg" alt="logo del cine"
+            class="logo"></a>
+    <div class="perfil">
+        <a href="index.html"><img src="imagenes/usuario.jpg" alt="foto de perfil" id="usuario"></a>
+        <span class="usuario"> <a href="">Perfil</a></span>
+    </div>
+</header>
+<nav class="menucom">
+    <a href="index.html">
+        Principal
+    </a>
+    <a href="cartelera.html">
+        CARTELERA
+    </a>
+    <a href="carrito.html">
+        COMPRAR ENTRADA
+    </a>
+    <a href="comida.html">
+        COMIDA
+    </a>
+</nav>
+<aside class="busquedacom" id="busqueda">
+    <div>
+        <form name="filtro">
+            <fieldset>
+                <legend>Bùsqueda</legend>
+                <label for="buscar">Buscar:</label>
+                <input type="text" name="buscar" id="buscar" onchange="filtrarComida()">
+            </fieldset>
+        </form>
+    </div>
+</aside>
+<main class="contenidocom">
+    <h1 class="comida">
+        ¿Qué se te antoja?
+    </h1>
+    <h2 class="tipos">
+        Comida
+    </h2>
+    <div id="mostrar-comida">
+
+    </div>
+    <h2 class="tipos">
+        Dulces
+    </h2>
+    <div id="mostrar-comida4">
+
+    </div>
+    <h2 class="tipos">
+        Bebidas
+    </h2>
+    <div id="mostrar-comida2">
+
+    </div>
+    <h2 class="tipos">
+        Promos
+    </h2>
+    <div id="mostrar-comida3">
+
+    </div>
+</main>
+</body>
+</html>

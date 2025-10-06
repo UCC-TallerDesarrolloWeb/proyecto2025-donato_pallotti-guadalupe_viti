@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Resumen de Compra</title>
+  <meta name="description" content="Página del pago del cine">
+  <meta name="keywords" content="HTML,CSS,JavaScript">
+  <meta name="author" content="Donato Mariano Pallotti y Maria Guadalupe Viti">
+  <link rel="stylesheet" href="general.css">
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+
+<header class="cabezaind">
+    <h2 class="cineword">Pago</h2>
+    <a href="principal.html"><h2 class="cineword">Cine World</h2></a>
+    <a href="principal.html" class="cineword"><img
+            src="imagenes/WhatsApp%20Image%202025-09-22%20at%2011.30.00_4f15e84f.jpg" alt="logo del cine"
+            class="logo"></a>
+    <div class="perfil">
+        <a href="index.html"><img src="imagenes/usuario.jpg" alt="foto de perfil" id="usuario"></a>
+        <span class="usuario"> <a href="">Perfil</a></span>
+    </div>
+</header>
+
+<main class="final">
+
+    <section class="cupon">
+        <label for="cupon">Código de cupón:</label>
+        <input type="text" id="cupon" placeholder="Ingresar cupón">
+        <button class="pago2" onclick="aplicarCupon()">Aplicar Cupón</button>
+        <div id="mensajeCupon" aria-live="polite"></div>
+    </section>
+
+    <section class="pago">
+        <label for="formaPago">Forma de Pago:</label>
+        <select id="formaPago" onchange="mostrarTarjeta()">
+            <option value="">Seleccionar</option>
+            <option value="efectivo">Efectivo</option>
+            <option value="tarjeta">Tarjeta</option>
+        </select>
+
+        <div class="tarjeta" id="datosTarjeta">
+            <label for="numTarjeta">Número de tarjeta:</label>
+            <input type="text" id="numTarjeta" placeholder="16 dígitos">
+
+            <label for="nombreTarjeta">Nombre en la tarjeta:</label>
+            <input type="text" id="nombreTarjeta" placeholder="Titular de la tarjeta">
+
+            <label for="vencimiento">Vencimiento:</label>
+            <input type="text" id="vencimiento" placeholder="MM/AA">
+
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" placeholder="3 dígitos">
+        </div>
+    </section>
+
+    <section class="total">
+        <h2>Total: $<span id="totalPagar">0</span></h2>
+    </section>
+
+    <button class="pago2" onclick="confirmarCompra()">Confirmar Compra</button>
+</main>
+
+</body>
+</html>
