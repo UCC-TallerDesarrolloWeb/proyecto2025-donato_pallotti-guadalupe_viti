@@ -5,17 +5,17 @@ const productos = [
         genero: "fantasia",
         director: "James Cameron",
         idioma: ["sub", "doblada"],
-        tipo:["2d","3d"],
+        tipo: ["2d", "3d"],
         precio: 35000,
         imagen: "avatar.jpg",
     },
     {
         nombre: "Una batalla tras otra",
         description: "Cuando su enemigo malvado reaparece después de 16 años, un grupo de exrevolucionarios se reúne para rescatar a la hija de uno de ellos.",
-        genero:  "accion",
+        genero: "accion",
         director: "Paul Thomas Anderson",
         idioma: ["sub", "doblada"],
-        tipo:["2d","3d"],
+        tipo: ["2d", "3d"],
         precio: 35000,
         imagen: "batalla.jpg",
 
@@ -26,7 +26,7 @@ const productos = [
         genero: "suspenso",
         director: "Francis Lawrence",
         idioma: ["sub", "doblada"],
-        tipo:["2d","3d"],
+        tipo: ["2d", "3d"],
         precio: 35000,
         imagen: "camina.jpg",
     },
@@ -36,7 +36,7 @@ const productos = [
         genero: "terror",
         director: "Michael Chaves",
         idioma: ["sub", "doblada"],
-        tipo:["2d","3d"],
+        tipo: ["2d", "3d"],
         precio: 35000,
         imagen: "conjuro.jpg",
     },
@@ -47,7 +47,7 @@ const productos = [
         genero: "animacion",
         director: "Haruo Sotozaki",
         idioma: ["sub", "doblada"],
-        tipo:["2d","3d"],
+        tipo: ["2d", "3d"],
         precio: 35000,
         imagen: "demon.jpg",
     },
@@ -57,7 +57,7 @@ const productos = [
         genero: "musical",
         director: "Thomas Kail",
         idioma: ["sub", "doblada"],
-        tipo:["2d","3d"],
+        tipo: ["2d", "3d"],
         precio: 35000,
         imagen: "hamilton.jpg",
     },
@@ -66,20 +66,20 @@ const productos1 = [
     {
         nombre: "Tron Ares",
         description: "Tercera entrega de la saga TRON. Cuenta la historia de Ares, un programa altamente sofisticado que es enviado desde el mundo digital al mundo real en una misión peligrosa, marcando el primer encuentro de la humanidad con seres de inteligencia artificial.",
-        genero:  "accion",
+        genero: "accion",
         director: "James Cameron",
         idioma: ["sub", "doblada"],
-        tipo:["2d","3d"],
+        tipo: ["2d", "3d"],
         precio: 35000,
         imagen: "tron.jpg",
     },
     {
         nombre: "TELÉFONO NEGRO 2",
         description: "Secuela de “Black Phone”. El Raptor quiere vengarse de Finn desde la tumba y escoge como objetivo a Gwen, su hermana pequeña. Gwen, una adolescente de 15 años con mucho carácter, empieza a recibir llamadas de un teléfono negro en sueños, acompañadas de inquietantes visiones de algo o alguien acechando a tres chicos en el campamento de invierno de Alpine Lake. Decidida a resolver el misterio y a acabar con el tormento de su hermano, Gwen convence a Finn para ir al campamento durante una tormenta de nieve. Juntos, los dos hermanos deberán enfrentarse a un asesino aún más poderoso desde la muerte.",
-        genero:  "terror",
+        genero: "terror",
         director: "Paul Thomas Anderson",
         idioma: ["sub", "doblada"],
-        tipo:["2d","3d"],
+        tipo: ["2d", "3d"],
         precio: 35000,
         imagen: "telefono.jpg",
 
@@ -90,7 +90,7 @@ const productos1 = [
         genero: "musical",
         director: "Francis Lawrence",
         idioma: ["sub", "doblada"],
-        tipo:["2d","3d"],
+        tipo: ["2d", "3d"],
         precio: 35000,
         imagen: "myski.jpg",
     },
@@ -120,13 +120,13 @@ const comida = [
 const comida2 = [
     {
         nombre: "M&M",
-        description: "Bolsa con M&M" ,
+        description: "Bolsa con M&M",
         precio: 500,
         imagen: "mym.jpg",
     },
     {
         nombre: "Skittles",
-        description: "Bolsa con Skittles" ,
+        description: "Bolsa con Skittles",
         precio: 500,
         imagen: "Skittles.jpg",
 
@@ -308,12 +308,15 @@ function agregarComidaAlCarrito(item) {
 function ComidaAlCarrito(id) {
     agregarComidaAlCarrito(comida[id]);
 }
+
 function ComidaAlCarrito2(id) {
     agregarComidaAlCarrito(comida2[id]);
 }
+
 function ComidaAlCarrito3(id) {
     agregarComidaAlCarrito(comida3[id]);
 }
+
 function ComidaAlCarrito4(id) {
     agregarComidaAlCarrito(comida4[id]);
 }
@@ -576,14 +579,16 @@ let filtrarComida = () => {
  * Puedes editarla: {codigo: 'STRING', tipo: 'percent'|'fixed', valor: number, descripcion: ''}
  */
 const CUponesValido = [
-    { codigo: 'DESCUENTO10', tipo: 'percent', valor: 10, descripcion: '10% de descuento' },
-    { codigo: 'CUPON500', tipo: 'fixed', valor: 500, descripcion: '$500 de descuento' },
-    { codigo: 'PROMO5', tipo: 'percent', valor: 5, descripcion: '5% de descuento' }
+    {codigo: 'DESCUENTO10', tipo: 'percent', valor: 10, descripcion: '10% de descuento'},
+    {codigo: 'CUPON500', tipo: 'fixed', valor: 500, descripcion: '$500 de descuento'},
+    {codigo: 'PROMO5', tipo: 'percent', valor: 5, descripcion: '5% de descuento'}
 ];
 
 /**
- * Calcula total del carrito leyendo localStorage y aplica cupón si existe.
- * Actualiza el elemento #totalPagar en pago.html
+ * @method sincronizarTotalEnPago
+ *  * @param {void} - No recibe parámetros (toma los datos desde localStorage y el DOM).
+ *  * @return {void} No retorna valor; actualiza el DOM con el total actualizado.
+ *  a
  */
 function sincronizarTotalEnPago() {
     const peli = JSON.parse(localStorage.getItem("peliculaSeleccionada"));
@@ -628,8 +633,10 @@ function sincronizarTotalEnPago() {
 }
 
 /**
- * Aplicar cupón desde el input #cupon
- */
+ * * @method aplicarCupon
+ *  * @param {void} - No recibe parámetros directamente (usa el valor del input #cupon).
+ *  * @return {void} No retorna valor; actualiza el total y muestra un mensaje en pantalla.
+ *  */
 function aplicarCupon() {
     const input = document.getElementById('cupon');
     const mensajeEl = document.getElementById('mensajeCupon');
@@ -654,8 +661,10 @@ function aplicarCupon() {
 }
 
 /**
- * Mostrar/ocultar formulario de tarjeta según select #formaPago
- */
+ * * @method mostrarTarjeta
+ *  * @param {void} - No recibe parámetros (usa el valor del select #formaPago).
+ *  * @return {void} No retorna valor; modifica la visibilidad del formulario de tarjeta.
+ *  */
 function mostrarTarjeta() {
     const select = document.getElementById('formaPago');
     const datos = document.getElementById('datosTarjeta');
@@ -717,9 +726,10 @@ function fechaValidaYNoVencida(mmYY) {
     return vencYm >= ahoraYm;
 }
 
-/**
- * Confirmar compra: valida campos si es tarjeta, aplica lógica final y limpia (opcional)
- */
+/* @method confirmarCompra
+* @param {void} - No recibe parámetros directamente (toma los valores desde el DOM).
+* @return {void} No retorna ningún valor; muestra alertas y redirige al usuario al index.html.
+*/
 function confirmarCompra() {
     const forma = document.getElementById('formaPago').value;
     const mensajeEl = document.getElementById('mensajeCupon');
@@ -745,7 +755,7 @@ function confirmarCompra() {
     }
 
     // Si es tarjeta: validar campos
-    const num = document.getElementById('numTarjeta').value.replace(/\s/g,'');
+    const num = document.getElementById('numTarjeta').value.replace(/\s/g, '');
     const nombre = document.getElementById('nombreTarjeta').value.trim();
     const venc = document.getElementById('vencimiento').value.trim();
     const cvv = document.getElementById('cvv').value.trim();
@@ -787,7 +797,10 @@ function confirmarCompra() {
 
 /* ----------------- Inicialización y eventos ----------------- */
 document.addEventListener('DOMContentLoaded', () => {
-    // Sincronizar total cuando entra a la página de pago
+    /* @method sincronizarTotalEnPago
+    * @param {void} - No recibe parámetros (toma los datos desde localStorage y el DOM).
+* @return {void} No retorna valor; actualiza el DOM con el total actualizado.
+    */
     sincronizarTotalEnPago();
 
     // Asignar listeners para inputs numéricos
