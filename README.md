@@ -9,7 +9,7 @@
 
 2. ## Contenido/Descripcion del proyecto
 *Titulo del proyecto*: Cine World, pagina de un cine. :sparkles:
-A partir de codigo HTML, CSS y JavaScript, realizamos una pagina donde el usuario podra iniciar sesion, ver la cartelera, comprar entradas y comida para ver una pelicula. Ademas de pagar y cerrar sesion.:otocat:
+A partir de codigo HTML, CSS y JavaScript, realizamos una pagina donde el usuario podra  ver la cartelera, comprar entradas y comida para ver una pelicula. Ademas de pagar.:otocat:
 
 ## Tecnologias utilizadas
 * Google
