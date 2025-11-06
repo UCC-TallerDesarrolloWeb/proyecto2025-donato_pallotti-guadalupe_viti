@@ -224,8 +224,8 @@ fieldset {
 
 /*main*/
 
-h3 {
-    color: #070709;
+.contenidocom h3 {
+    color: #f42c1d;
     font-family: "Alfa Slab One", serif;
     font-weight: 400;
     font-style: normal;
