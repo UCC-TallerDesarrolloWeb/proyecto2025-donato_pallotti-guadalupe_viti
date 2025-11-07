@@ -7,7 +7,7 @@ const productos = [
         idioma: ["sub", "doblada"],
         tipo: ["2d", "3d"],
         precio: 35000,
-        imagen: "avatar.jpg",
+        imagen: "pelicula_avatar.jpg",
     },
     {
         nombre: "Una batalla tras otra",
@@ -17,7 +17,7 @@ const productos = [
         idioma: ["sub", "doblada"],
         tipo: ["2d", "3d"],
         precio: 35000,
-        imagen: "batalla.jpg",
+        imagen: "pelicula_batalla.jpg",
 
     },
     {
@@ -28,7 +28,7 @@ const productos = [
         idioma: ["sub", "doblada"],
         tipo: ["2d", "3d"],
         precio: 35000,
-        imagen: "camina.jpg",
+        imagen: "pelicula_camina.jpg",
     },
     {
         nombre: "El conjuro 4",
@@ -38,7 +38,7 @@ const productos = [
         idioma: ["sub", "doblada"],
         tipo: ["2d", "3d"],
         precio: 35000,
-        imagen: "conjuro.jpg",
+        imagen: "pelicula_conjuro.jpg",
     },
     {
         nombre: "Demon slayer, El castillo infinito",
@@ -49,7 +49,7 @@ const productos = [
         idioma: ["sub", "doblada"],
         tipo: ["2d", "3d"],
         precio: 35000,
-        imagen: "demon.jpg",
+        imagen: "pelicula_demon.jpg",
     },
     {
         nombre: "Hamilton",
@@ -59,7 +59,7 @@ const productos = [
         idioma: ["sub", "doblada"],
         tipo: ["2d", "3d"],
         precio: 35000,
-        imagen: "hamilton.jpg",
+        imagen: "pelicula_hamilton.jpg",
     },
 ];
 const productos1 = [
@@ -71,7 +71,7 @@ const productos1 = [
         idioma: ["sub", "doblada"],
         tipo: ["2d", "3d"],
         precio: 35000,
-        imagen: "tron.jpg",
+        imagen: "pelicula_tron.jpg",
     },
     {
         nombre: "TELÉFONO NEGRO 2",
@@ -81,7 +81,7 @@ const productos1 = [
         idioma: ["sub", "doblada"],
         tipo: ["2d", "3d"],
         precio: 35000,
-        imagen: "telefono.jpg",
+        imagen: "pelicula_telefono.jpg",
 
     },
     {
@@ -92,7 +92,7 @@ const productos1 = [
         idioma: ["sub", "doblada"],
         tipo: ["2d", "3d"],
         precio: 35000,
-        imagen: "myski.jpg",
+        imagen: "pelicula_myski.jpg",
     },
 ];
 
@@ -101,20 +101,20 @@ const comida = [
         nombre: "Nachos",
         description: "nachos con aderezo",
         precio: 5000,
-        imagen: "nachos.jpg",
+        imagen: "comida_nachos.jpg",
     },
     {
         nombre: "Pororo grande",
         description: "balde grande",
         precio: 5000,
-        imagen: "pororogrande.jpg",
+        imagen: "comida_pororogrande.jpg",
 
     },
     {
         nombre: "Pororo medio",
         description: "balde mediano",
         precio: 5000,
-        imagen: "pororomedio.jpg",
+        imagen: "comida_pororomedio.jpg",
     },
 ];
 const comida2 = [
@@ -122,13 +122,13 @@ const comida2 = [
         nombre: "M&M",
         description: "Bolsa con M&M",
         precio: 500,
-        imagen: "mym.jpg",
+        imagen: "comida_mym.jpg",
     },
     {
         nombre: "Skittles",
         description: "Bolsa con Skittles",
         precio: 500,
-        imagen: "Skittles.jpg",
+        imagen: "comida_Skittles.jpg",
 
     },
 ];
@@ -137,13 +137,13 @@ const comida3 = [
         nombre: "Botella de agua",
         description: "Botella con agua",
         precio: 500,
-        imagen: "agua.jpg",
+        imagen: "comida_agua.jpg",
     },
     {
         nombre: "Vaso",
         description: "Vaso grande con gaseosa",
         precio: 5000,
-        imagen: "baso.jpg",
+        imagen: "comida_vaso.jpg",
 
     },
 ];
@@ -152,13 +152,13 @@ const comida4 = [
         nombre: "Promo grande",
         description: "2 baldes de pororo, 4 Vasos grandes",
         precio: 5599,
-        imagen: "promogrande.jpg",
+        imagen: "comida_promogrande.jpg",
     },
     {
         nombre: "Promo media",
         description: "Baso grande con nachos",
         precio: 5000,
-        imagen: "promomedia.jpg",
+        imagen: "comida_promomedia.jpg",
 
     },
 ];
@@ -343,7 +343,7 @@ function mostrarCarritoCompleto() {
                 <p>${peli.description}</p>
                 <p>Precio unitario: $${peli.precio}</p>
                 <label>Cantidad de entradas:</label>
-                <input type="number" id="cantidadEntradas" min="1" value="1" style="width:60px;">
+                <input type="number" id="cantidadEntradas" min="1" value="1">
                 <p id="subtotalPeli">Subtotal: $${peli.precio}</p>
             </div>`;
         total += peli.precio;
@@ -374,7 +374,7 @@ function mostrarCarritoCompleto() {
                 <p>${item.description}</p>
                 <p>Precio unitario: $${item.precio}</p>
                 <label>Cantidad:</label>
-                <input type="number" min="1" value="${item.cantidad}" data-index="${index}" class="cantidadComida" style="width:60px;">
+                <input type="number" min="1" value="${item.cantidad}" data-index="${index}" class="cantidadComida">
                 <p class="subtotalComida">Subtotal: $${subtotal}</p>
                 <button class="btnQuitar" data-index="${index}">Quitar</button>
             `;

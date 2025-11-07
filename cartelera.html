@@ -15,22 +15,25 @@
 </head>
 <body class="grid-container2" onload="cargarpelis(); cargarpelis2();">
 <header class="cabezacar">
-    <h2 class="cineword">Cartelera</h2>
-    <a href="index.html"><h2 class="cineword">Cine World</h2></a>
+    <h2 class="cineword">
+        Cartelera
+    </h2>
+    <a href="index.html">
+        <h2 class="cineword">
+            Cine World
+        </h2>
+    </a>
     <a href="index.html" class="cineword"><img
-            src="imagenes/WhatsApp%20Image%202025-09-22%20at%2011.30.00_4f15e84f.jpg" alt="logo del cine"
-            class="logo"></a>
-    <div class="perfil">
-        <a href="index.html"><img src="imagenes/usuario.jpg" alt="foto de perfil" id="usuario"></a>
-        <span class="usuario"> <a href="">Perfil</a></span>
-    </div>
+        src="imagenes/logo.jpg" alt="logo del cine"
+        class="logo">
+    </a>
 </header>
 <nav class="menucar">
     <a href="index.html">
-        Principal
+        PRINCIPAL
     </a>
     <a href="cartelera.html">
-        CARTELERA
+        Cartelera
     </a>
     <a href="carrito.html">
         COMPRAR ENTRADA
@@ -43,47 +46,100 @@
     <div>
         <form name="filtro">
             <fieldset>
-                <legend>Bùsqueda</legend>
-                <label for="buscar">Buscar:</label>
-                <input type="text" name="buscar" id="buscar" onchange="filtrarProductos()">
+                <legend>
+                    Búsqueda
+                </legend>
+                <label for="buscar">
+                    Buscar:
+                </label>
+                <input type="text" 
+                    name="buscar" 
+                    id="buscar" 
+                    onchange="filtrarProductos()">
             </fieldset>
             <fieldset>
-                <legend>Genero</legend>
+                <legend>
+                    Género
+                </legend>
                 <p>
                     <input type="checkbox"
-                           name="genero"
-                           id="comedia"
-                           value="comedia"
-                           onchange=" filtrarProductos()">
-                    <label for="comedia">Comedia</label>
+                       name="genero"
+                       id="comedia"
+                       value="comedia"
+                        onchange=" filtrarProductos()">
+                    <label for="comedia">
+                        Comedia
+                    </label>
                 </p>
                 <p>
-                    <input type="checkbox" name="genero" id="terror" value="terror" onchange="filtrarProductos()">
-                    <label for="terror">Terror</label>
+                    <input type="checkbox" 
+                        name="genero" 
+                        id="terror" 
+                        value="terror" 
+                        onchange="filtrarProductos()">
+                    <label for="terror">
+                        Terror
+                    </label>
                 </p>
                 <p>
-                    <input type="checkbox" name="genero" id="romance" value="romance" onchange="filtrarProductos()">
-                    <label for="romance">Romance</label>
+                    <input type="checkbox" 
+                        name="genero" 
+                        id="romance" 
+                        value="romance" 
+                        onchange="filtrarProductos()">
+                    <label for="romance">
+                        Romance
+                    </label>
                 </p>
                 <p>
-                    <input type="checkbox" name="genero" id="animacion" value="animacion" onchange="filtrarProductos()">
-                    <label for="animacion">Animación</label>
+                    <input type="checkbox" 
+                        name="genero" 
+                        id="animacion" 
+                        value="animacion" 
+                        onchange="filtrarProductos()">
+                    <label for="animacion">
+                        Animación
+                    </label>
                 </p>
                 <p>
-                    <input type="checkbox" name="genero" id="accion" value="accion" onchange="filtrarProductos()">
-                    <label for="accion">Acción</label>
+                    <input type="checkbox" 
+                        name="genero" 
+                        id="accion" 
+                        value="accion" 
+                        onchange="filtrarProductos()">
+                    <label for="accion">
+                        Acción
+                    </label>
                 </p>
                 <p>
-                    <input type="checkbox" name="genero" id="fantasia" value="fantasia" onchange="filtrarProductos()">
-                    <label for="fantasia">Fantasia</label>
+                    <input type="checkbox" 
+                        name="genero" 
+                        id="fantasia" 
+                        value="fantasia" 
+                        onchange="filtrarProductos()">
+                    <label for="fantasia">
+                        Fantasia
+                    </label>
                 </p>
                 <p>
-                    <input type="checkbox" name="genero" id="musical" value="musical" onchange="filtrarProductos()">
-                    <label for="musical">Musical</label>
+                    <input type="checkbox" 
+                        name="genero" 
+                        id="musical" 
+                        value="musical" 
+                        onchange="filtrarProductos()">
+                    <label for="musical">
+                        Musical
+                    </label>
                 </p>
                 <p>
-                    <input type="checkbox" name="genero" id="suspenso" value="suspenso" onchange="filtrarProductos()">
-                    <label for="suspenso">Suspenso</label>
+                    <input type="checkbox" 
+                        name="genero" 
+                        id="suspenso" 
+                        value="suspenso" 
+                        onchange="filtrarProductos()">
+                    <label for="suspenso">
+                        Suspenso
+                    </label>
                 </p>
             </fieldset>
         </form>
@@ -91,7 +147,7 @@
 </aside>
 <main class="contenidocar">
     <h1 class="cartelera">
-        ¿Cual va a ser tu siguiente aventura?
+        ¿Cuál va a ser tu siguiente aventura?
     </h1>
     <h2 class="tipos">
         Cartelera
@@ -100,10 +156,9 @@
 
     </div>
     <h2 class="tipos">
-        Proximos estrenos
+        Próximos estrenos
     </h2>
     <div class="peliculas2" id="mostrar-peliculas2">
-
     </div>
 </main>
 </body>
