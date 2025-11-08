@@ -1,3 +1,5 @@
+/* ======================= PRODUCTOS Y COMIDAS (DATA) ======================= */
+
 const productos = [
     {
         nombre: "Avatar el camino del agua",
@@ -163,6 +165,13 @@ const comida4 = [
     },
 ];
 
+/**
+ * Renderiza la grilla de la primera categoría de comida en #mostrar-comida.
+ * @method cargarcomida
+ * @param {Array<Object>} [prod=comida] - Lista de ítems a mostrar.
+ * @return {void} No retorna valor; actualiza el DOM.
+ */
+
 let cargarcomida = (prod = comida) => {
     let contenido = "";
 
@@ -177,6 +186,13 @@ let cargarcomida = (prod = comida) => {
     });
     document.getElementById("mostrar-comida").innerHTML = contenido;
 };
+/**
+ * Renderiza la grilla de la segunda categoría de comida en #mostrar-comida4.
+ * @method cargarcomida2
+ * @param {Array<Object>} [prod=comida2] - Lista de ítems a mostrar.
+ * @return {void}
+ */
+
 let cargarcomida2 = (prod = comida2) => {
     let contenido = "";
 
@@ -191,6 +207,13 @@ let cargarcomida2 = (prod = comida2) => {
     });
     document.getElementById("mostrar-comida4").innerHTML = contenido;
 };
+/**
+ * Renderiza la grilla de la tercera categoría de comida en #mostrar-comida2.
+ * @method cargarcomida3
+ * @param {Array<Object>} [prod=comida3] - Lista de ítems a mostrar.
+ * @return {void}
+ */
+
 let cargarcomida3 = (prod = comida3) => {
     let contenido = "";
 
@@ -205,6 +228,12 @@ let cargarcomida3 = (prod = comida3) => {
     });
     document.getElementById("mostrar-comida2").innerHTML = contenido;
 };
+/**
+ * Renderiza la grilla de la cuarta categoría de comida en #mostrar-comida3.
+ * @method cargarcomida4
+ * @param {Array<Object>} [prod=comida4] - Lista de ítems a mostrar.
+ * @return {void}
+ */
 let cargarcomida4 = (prod = comida4) => {
     let contenido = "";
 
@@ -220,12 +249,10 @@ let cargarcomida4 = (prod = comida4) => {
     document.getElementById("mostrar-comida3").innerHTML = contenido;
 };
 /**
+ * Renderiza películas (estrenos) en #mostrar-peliculas.
  * @method cargarpelis
- * @param {Array<Object>} prod - Arreglo de productos/películas a mostrar.
- * Cada objeto debe contener al menos las propiedades:
- *   - {string} imagen: nombre del archivo de imagen del producto.
- *   - {string} nombre: nombre de la película/producto.
- * @return {void} las peliculas
+ * @param {Array<Object>} [prod=productos] - Lista de películas a mostrar.
+ * @return {void}
  */
 let cargarpelis = (prod = productos) => {
     let contenido = "";
@@ -241,12 +268,10 @@ let cargarpelis = (prod = productos) => {
     document.getElementById("mostrar-peliculas").innerHTML = contenido;
 };
 /**
- * @method cargarpelis1
- * @param {Array<Object>} prod - Arreglo de productos/películas a mostrar.
- * Cada objeto debe contener al menos las propiedades:
- *   - {string} imagen: nombre del archivo de imagen del producto.
- *   - {string} nombre: nombre de la película/producto.
- * @return {void} las peliculas
+ * Renderiza películas (próximamente) en #mostrar-peliculas2.
+ * @method cargarpelis2
+ * @param {Array<Object>} [prod=productos1] - Lista de películas a mostrar.
+ * @return {void}
  */
 let cargarpelis2 = (prod = productos1) => {
     let contenido = "";
@@ -261,34 +286,33 @@ let cargarpelis2 = (prod = productos1) => {
     });
     document.getElementById("mostrar-peliculas2").innerHTML = contenido;
 };
-
-
 /**
+ * Guarda la película seleccionada (de `productos`) en localStorage.
  * @method agregarAlCarrito
- * @param {number} id - Índice del arreglo `productos` que representa la película seleccionada.
- * @description Guarda en el almacenamiento local (`localStorage`) la película elegida
- *              por el usuario para poder mostrarla luego en la página del carrito.
- * @return {void} No devuelve valor.
+ * @param {number} id - Índice de la película en `productos`.
+ * @return {void}
  */
-
 let agregarAlCarrito = (id) => {
     const peli = productos[id];
     localStorage.setItem("peliculaSeleccionada", JSON.stringify(peli));
-
 };
 /**
+ * Guarda la película seleccionada (de `productos1`) en localStorage.
  * @method agregarAlCarrito2
- * @param {number} id - Índice del arreglo `productos1` (por ejemplo, comidas u otros productos).
- * @description Funciona igual que `agregarAlCarrito`, pero utiliza el arreglo `productos1`.
- *              Sirve para guardar un tipo diferente de producto (como comida).
- * @return {void} No devuelve valor.
+ * @param {number} id - Índice de la película en `productos1`.
+ * @return {void}
  */
 let agregarAlCarrito2 = (id) => {
     const peli = productos1[id];
     localStorage.setItem("peliculaSeleccionada", JSON.stringify(peli));
 };
-
-function agregarComidaAlCarrito(item) {
+/**
+ * Agrega una comida al carrito en localStorage (acumula cantidad).
+ * @method agregarComidaAlCarrito
+ * @param {Object} item - Ítem de comida con {nombre, description, precio, imagen}.
+ * @return {void}
+ */
+let agregarComidaAlCarrito = (item) => {
     let carritoComidas = JSON.parse(localStorage.getItem("carritoComidas")) || [];
 
     // Si ya existe la comida, aumentar cantidad
@@ -302,27 +326,54 @@ function agregarComidaAlCarrito(item) {
 
     localStorage.setItem("carritoComidas", JSON.stringify(carritoComidas));
     alert(`${item.nombre} se agregó al carrito 🍿`);
-}
+};
 
 // Estas son las funciones llamadas desde comida.html
-function ComidaAlCarrito(id) {
+/**
+ * Agrega comida de la lista `comida` según índice.
+ * @method ComidaAlCarrito
+ * @param {number} id - Índice en `comida`.
+ * @return {void}
+ */
+let ComidaAlCarrito = (id) => {
     agregarComidaAlCarrito(comida[id]);
-}
-
-function ComidaAlCarrito2(id) {
+};
+/**
+ * Agrega comida de la lista `comida2` según índice.
+ * @method ComidaAlCarrito2
+ * @param {number} id - Índice en `comida2`.
+ * @return {void}
+ */
+let ComidaAlCarrito2 = (id) => {
     agregarComidaAlCarrito(comida2[id]);
-}
-
-function ComidaAlCarrito3(id) {
+};
+/**
+ * Agrega bebida de la lista `comida3` según índice.
+ * @method ComidaAlCarrito3
+ * @param {number} id - Índice en `comida3`.
+ * @return {void}
+ */
+let ComidaAlCarrito3 = (id) => {
     agregarComidaAlCarrito(comida3[id]);
-}
+};
 
-function ComidaAlCarrito4(id) {
+/**
+ * Agrega promo de la lista `comida4` según índice.
+ * @method ComidaAlCarrito4
+ * @param {number} id - Índice en `comida4`.
+ * @return {void}
+ */
+let ComidaAlCarrito4 = (id) => {
     agregarComidaAlCarrito(comida4[id]);
-}
+};
 
-
-function mostrarCarritoCompleto() {
+/**
+ * Renderiza en pantalla la película seleccionada y todas las comidas del carrito.
+ * Calcula subtotales y total. Permite cambiar cantidades y quitar ítems.
+ * @method mostrarCarritoCompleto
+ * @return {void}
+ */
+let mostrarCarritoCompleto = () => {
     const peli = JSON.parse(localStorage.getItem("peliculaSeleccionada"));
     const carritoComidas = JSON.parse(localStorage.getItem("carritoComidas")) || [];
 
@@ -409,7 +460,14 @@ function mostrarCarritoCompleto() {
     });
 
     // --- Función auxiliar para recalcular total ---
-    function actualizarTotal() {
+
+    /**
+     * Recalcula el total dinámicamente y actualiza el DOM.
+     * @method actualizarTotal
+     * @private
+     * @return {void}
+     */
+    let actualizarTotal = () => {
         let totalFinal = 0;
         if (peli) {
             const cant = parseInt(document.getElementById("cantidadEntradas").value);
@@ -419,23 +477,13 @@ function mostrarCarritoCompleto() {
             totalFinal += c.precio * c.cantidad;
         });
         totalContenedor.innerHTML = `<h3>Total a pagar: $${totalFinal}</h3>`;
-    }
-}
+    };
+};
 
 /**
+ * Filtra y renderiza películas en ambas secciones según texto y géneros seleccionados.
  * @method filtrarProductos
- * @description Filtra las películas según la palabra ingresada en el campo de búsqueda
- *              y/o los géneros seleccionados. Mantiene la separación visual entre las secciones
- *              "En estreno" (productos) y "Próximamente" (productos1), mostrando cada película
- *              en su contenedor correspondiente.
- *
- * @returns {void} No devuelve valor; actualiza dinámicamente el contenido del DOM mostrando
- *                 solo las películas que coinciden con los filtros aplicados.
- *
- * @example
- * // Si el usuario escribe "acción" y selecciona el género "Acción":
- * // se mostrarán las películas de ese género tanto en estrenos como en próximamente,
- * // cada una en su sección correspondiente.
+ * @return {void}
  */
 let filtrarProductos = () => {
     let searchWord = document.getElementById("buscar").value.trim().toLowerCase();
@@ -445,7 +493,7 @@ let filtrarProductos = () => {
     let proximamente = [...productos1];
 
     // Función auxiliar para filtrar según palabra y género
-    const aplicarFiltros = (lista) => {
+    let aplicarFiltros = (lista) => {
         let filtrada = [...lista];
 
         // Filtrar por texto (nombre o descripción)
@@ -513,14 +561,9 @@ let filtrarProductos = () => {
 };
 
 /**
+ * Filtra y renderiza comidas combinando los cuatro catálogos.
  * @method filtrarComida
- * @description Filtra los productos de comida, dulces, bebidas y promociones según
- *              el texto ingresado en el campo de búsqueda. Combina los cuatro arreglos
- *              principales (`comida`, `comida2`, `comida3`, `comida4`) y actualiza
- *              dinámicamente el contenido mostrado en el DOM.
- *
- * @returns {void} No devuelve valor; modifica directamente el contenido HTML de los
- *                 contenedores de comida en la página `comida.html`.
+ * @return {void}
  */
 let filtrarComida = () => {
     let searchWord = document.getElementById("buscar").value.trim().toLowerCase();
@@ -585,12 +628,12 @@ const CUponesValido = [
 ];
 
 /**
+ * Sincroniza el total a pagar leyendo carrito y cupón desde localStorage.
+ * Refresca #totalPagar y #mensajeCupon (si corresponde).
  * @method sincronizarTotalEnPago
- *  * @param {void} - No recibe parámetros (toma los datos desde localStorage y el DOM).
- *  * @return {void} No retorna valor; actualiza el DOM con el total actualizado.
- *  a
+ * @return {void}
  */
-function sincronizarTotalEnPago() {
+let sincronizarTotalEnPago = () => {
     const peli = JSON.parse(localStorage.getItem("peliculaSeleccionada"));
     const carritoComidas = JSON.parse(localStorage.getItem("carritoComidas")) || [];
     // Si el carrito en la otra página guarda cantidad de entradas, usala. Si no, asumimos 1.
@@ -630,14 +673,15 @@ function sincronizarTotalEnPago() {
     if (mensajeEl && cuponAplicado) {
         mensajeEl.textContent = `Cupón "${cuponAplicado.codigo}" aplicado${mensajeCup}. Total actualizado.`;
     }
-}
+};
+
 
 /**
- * * @method aplicarCupon
- *  * @param {void} - No recibe parámetros directamente (usa el valor del input #cupon).
- *  * @return {void} No retorna valor; actualiza el total y muestra un mensaje en pantalla.
- *  */
-function aplicarCupon() {
+ * Valida, aplica y persiste un cupón. Actualiza el total.
+ * @method aplicarCupon
+ * @return {void}
+ */
+let aplicarCupon = () => {
     const input = document.getElementById('cupon');
     const mensajeEl = document.getElementById('mensajeCupon');
     if (!input) return;
@@ -658,14 +702,14 @@ function aplicarCupon() {
     localStorage.setItem('cuponAplicado', JSON.stringify(encontrado));
     if (mensajeEl) mensajeEl.textContent = `Cupón "${encontrado.codigo}" válido: ${encontrado.descripcion}.`;
     sincronizarTotalEnPago();
-}
+};
 
 /**
- * * @method mostrarTarjeta
- *  * @param {void} - No recibe parámetros (usa el valor del select #formaPago).
- *  * @return {void} No retorna valor; modifica la visibilidad del formulario de tarjeta.
- *  */
-function mostrarTarjeta() {
+ * Muestra/oculta el formulario de tarjeta según la opción elegida en #formaPago.
+ * @method mostrarTarjeta
+ * @return {void}
+ */
+let mostrarTarjeta = () => {
     const select = document.getElementById('formaPago');
     const datos = document.getElementById('datosTarjeta');
     if (!select || !datos) return;
@@ -674,22 +718,35 @@ function mostrarTarjeta() {
     } else {
         datos.style.display = 'none';
     }
-}
+};
 
 /* ----------------- Validadores de tarjeta ----------------- */
 
 // Limpiar input dejando sólo dígitos
-function soloDigitosInput(el, maxLength) {
+/**
+ * Restringe un input a dígitos y longitud máxima opcional.
+ * @method soloDigitosInput
+ * @param {HTMLInputElement} el - Input a controlar.
+ * @param {number} [maxLength] - Longitud máxima permitida.
+ * @return {void}
+ */
+let soloDigitosInput = (el, maxLength) => {
     if (!el) return;
     el.addEventListener('input', () => {
         let v = el.value.replace(/\D/g, '');
         if (maxLength) v = v.slice(0, maxLength);
         el.value = v;
     });
-}
+};
 
 // Luhn algorithm para verificar número de tarjeta
-function luhnCheck(cardNumber) {
+/**
+ * Verifica un número de tarjeta con el algoritmo de Luhn.
+ * @method luhnCheck
+ * @param {string} cardNumber - Número de tarjeta (con o sin espacios).
+ * @return {boolean} true si pasa Luhn; de lo contrario false.
+ */
+let luhnCheck = (cardNumber) => {
     const s = cardNumber.replace(/\D/g, '');
     let sum = 0;
     let alt = false;
@@ -703,10 +760,17 @@ function luhnCheck(cardNumber) {
         alt = !alt;
     }
     return (sum % 10) === 0;
-}
+};
 
 // Verificar fecha MM/AA no vencida
-function fechaValidaYNoVencida(mmYY) {
+
+/**
+ * Valida formato MM/AA y que la fecha no esté vencida.
+ * @method fechaValidaYNoVencida
+ * @param {string} mmYY - Cadena en formato "MM/AA".
+ * @return {boolean} true si es válida y vigente; de lo contrario false.
+ */
+let fechaValidaYNoVencida = (mmYY) => {
     const m = mmYY.replace(/\s/g, '');
     if (!/^\d{2}\/\d{2}$/.test(m)) return false;
     const [mmStr, yyStr] = m.split('/');
@@ -716,21 +780,19 @@ function fechaValidaYNoVencida(mmYY) {
 
     // Convertir a año completo: asumimos 20XX para 00-99 (ajustable)
     const anio = 2000 + yy;
-    const fechaVenc = new Date(anio, mm, 1); // primer día del mes siguiente se considera vencido en el primer día del mes
-    // Tomar fin del mes como último instante válido: usaremos el primer día del siguiente mes menos 1ms.
     const ahora = new Date();
-    // Considerar válido si final del mes >= hoy
-    // Para simplificar: comparamos año/mes
+    // Comparar año/mes
     const ahoraYm = ahora.getFullYear() * 12 + (ahora.getMonth() + 1);
     const vencYm = anio * 12 + mm;
     return vencYm >= ahoraYm;
-}
-
-/* @method confirmarCompra
-* @param {void} - No recibe parámetros directamente (toma los valores desde el DOM).
-* @return {void} No retorna ningún valor; muestra alertas y redirige al usuario al index.html.
-*/
-function confirmarCompra() {
+};
+/**
+ * Valida los datos de pago (según forma) y confirma la compra.
+ * Limpia el carrito y redirige a index.html.
+ * @method confirmarCompra
+ * @return {void}
+ */
+let confirmarCompra = () => {
     const forma = document.getElementById('formaPago').value;
     const mensajeEl = document.getElementById('mensajeCupon');
 
@@ -781,26 +843,22 @@ function confirmarCompra() {
         return;
     }
 
-    // Simular verificación de seguridad (EN PRODUCCION deberías llamar a un backend/servicio de pagos)
-    // Aquí sólo mostramos confirmación
+    // Simulación de pago
     alert(`Pago con tarjeta autorizado. Se cobró $${totalActual}. ¡Gracias por su compra!`);
 
-    // Limpiar carrito (opcional)
+
     localStorage.removeItem('peliculaSeleccionada');
     localStorage.removeItem('carritoComidas');
     localStorage.removeItem('cantidadEntradas');
     localStorage.removeItem('cuponAplicado');
 
-    // Redirigir o actualizar UI
+
     window.location.href = 'index.html';
-}
+};
 
 /* ----------------- Inicialización y eventos ----------------- */
 document.addEventListener('DOMContentLoaded', () => {
-    /* @method sincronizarTotalEnPago
-    * @param {void} - No recibe parámetros (toma los datos desde localStorage y el DOM).
-* @return {void} No retorna valor; actualiza el DOM con el total actualizado.
-    */
+    /* @method sincronizarTotalEnPago */
     sincronizarTotalEnPago();
 
     // Asignar listeners para inputs numéricos
@@ -816,7 +874,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnCupon = document.querySelector('.cupon .pago2');
     if (btnCupon) btnCupon.addEventListener('click', aplicarCupon);
     const btnConfirm = document.querySelector('.pago2[onclick="confirmarCompra()"]');
-    // en caso de que el botón tenga onclick inline, no necesitamos agregar otro listener; si quieres, lo puedes cambiar
+    // si el botón tiene onclick inline, no hace falta agregar otro listener
 });
 
-/* ---------- FIN: funcionalidades de pago ---------- */
+
