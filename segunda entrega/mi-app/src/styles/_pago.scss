@@ -1,0 +1,51 @@
+@use 'variables' as *;
+
+.pago {
+  text-align: center;
+  padding: 40px;
+
+  .cuadro {
+    background-color: $color-secundario;
+    border-radius: $radio;
+    padding: 25px;
+    width: 600px;
+    margin: 20px auto;
+    box-shadow: $sombra;
+
+    label {
+      color: $color-principal;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: $radio;
+      border: none;
+    }
+
+    .boton {
+      background-color: $color-principal;
+      padding: 10px;
+      width: 100%;
+      font-family: $fuente-principal;
+      border-radius: $radio;
+      border: none;
+      color: black;
+      font-weight: bold;
+
+      &:hover {
+        background-color: darken($color-principal, 10%);
+      }
+    }
+  }
+
+  .total {
+    color: $color-principal;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+}

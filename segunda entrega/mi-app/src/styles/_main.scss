@@ -1,0 +1,173 @@
+@use 'variables' as *;
+
+
+.cabezaind {
+  grid-area: header;
+}
+
+.menuind {
+  grid-area: nav;
+}
+
+.contenidoind {
+  grid-area: main;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header header header header header"
+    "nav nav nav nav nav nav"
+    "main main main main main main";
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.dondeir {
+  text-align: center;
+}
+
+#dondeir a:hover {
+  font-size: 1.4em;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+  text-decoration-color: $secondary-color;
+
+}
+
+#dondeir h3,
+#dondeir h1 {
+  color: $secondary-color;
+  font-family: $font-stack;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2em;
+}
+
+
+.promo img, .anuncio img {
+  width: 100%;
+}
+
+.promo {
+  position: absolute;
+  width: 400px;
+  right: 15px;
+  bottom: 50px;
+}
+
+.anuncio {
+  position: absolute;
+  width: 400px;
+  left: 15px;
+  bottom: 50px;
+}
+
+/* CARTELERA (puede quedar acá si lo tenías junto) */
+.cabezacar {
+  grid-area: header;
+}
+
+.menucar {
+  grid-area: nav;
+}
+
+.busquedacar {
+  grid-area: aside;
+}
+
+.contenidocar {
+  grid-area: main;
+}
+
+.grid-container2 {
+  display: grid;
+  grid-template-areas:
+    "header header header header header header"
+    "nav nav nav nav nav nav"
+    "aside main main main main main";
+  font-family: Arial, Helvetica, sans-serif;
+  gap: 0;
+}
+
+.busquedacar {
+  background-color: $secondary-color;
+  font-family: $font-stack;
+  font-weight: 400;
+  font-style: normal;
+  height: 100%;
+}
+
+fieldset {
+  border: 2px solid $primary-color;
+}
+
+.cartelera, .tipos {
+  color: $secondary-color;
+  font-family: $font-stack;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+}
+
+.cartelera {
+  font-size: 2em;
+}
+
+.tipos {
+  font-size: 1.5em;
+}
+
+.contenidocom h3 {
+  color: $secondary-color;
+  font-family: $font-stack;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.peliculas, .peliculas2 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.peliculas img, .peliculas2 img {
+  width: 100%;
+}
+
+.produ {
+  width: 350px;
+  border: 1px solid $secondary-color;
+  margin: 5px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.produ h3 {
+  color: $secondary-color;
+}
+
+button {
+  background-color: $primary-color;
+}
+
+#mostrar-peliculas2 {
+  bottom: 0;
+}
+a {
+  text-decoration: none;
+}
+
+a:hover,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+#nohaynada {
+  color: $secondary-color; // 🔴 texto rojo
+  font-family: $font-stack; // usa tu fuente personalizada
+  font-size: 1.5rem; // opcional, ajustá el tamaño
+  text-align: center; // centrado
+  margin-top: 30px; // espacio arriba
+}
+

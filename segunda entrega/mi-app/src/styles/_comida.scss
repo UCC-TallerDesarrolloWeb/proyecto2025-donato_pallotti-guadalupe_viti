@@ -1,0 +1,31 @@
+@use 'variables' as *;
+
+.comida {
+  text-align: center;
+  padding: 30px;
+
+  .productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+
+    .producto {
+      background-color: $color-secundario;
+      border: 2px solid $color-principal;
+      padding: 15px;
+      border-radius: $radio;
+      width: 280px;
+
+      img {
+        width: 100%;
+        border-radius: $radio;
+      }
+
+      h4 {
+        color: $color-principal;
+        margin-top: 10px;
+      }
+    }
+  }
+}

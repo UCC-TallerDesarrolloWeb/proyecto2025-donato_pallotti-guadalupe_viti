@@ -1,0 +1,43 @@
+@use 'variables' as *;
+
+.cartelera {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+  padding: 30px;
+
+  aside {
+    background-color: $color-principal;
+    padding: 15px;
+    border-radius: $radio;
+    color: black;
+    font-weight: bold;
+  }
+
+  .peliculas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    justify-items: center;
+
+    .pelicula {
+      background-color: $color-secundario;
+      border: 2px solid $color-principal;
+      border-radius: $radio;
+      text-align: center;
+      padding: 10px;
+      color: $color-texto;
+
+      img {
+        width: 200px;
+        border-radius: $radio;
+        margin-bottom: 10px;
+      }
+
+      h3 {
+        color: $color-principal;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
