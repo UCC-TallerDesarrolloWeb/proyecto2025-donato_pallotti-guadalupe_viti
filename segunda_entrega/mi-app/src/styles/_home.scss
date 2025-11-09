@@ -1,0 +1,43 @@
+@use 'variables' as *;
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px;
+  text-align: center;
+
+  h2 {
+    color: $color-principal;
+    margin-bottom: 30px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin: 15px 0;
+
+      a {
+        color: $color-principal;
+        text-decoration: none;
+        font-size: 1.3rem;
+        transition: 0.3s;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  img {
+    width: 400px;
+    border-radius: $radio;
+    margin-top: 20px;
+    box-shadow: $sombra;
+  }
+}

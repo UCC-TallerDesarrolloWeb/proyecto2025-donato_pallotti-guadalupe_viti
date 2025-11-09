@@ -1,0 +1,115 @@
+// ====== PÁGINA DE PAGO ======
+@use 'variables' as *;
+.pago-page {
+  background: #0b0b0b;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  // header de esta página (el fondo rojo lo da _header.scss)
+  .cabezaind {
+    .cineword { color: black; margin: 0; }
+  }
+}
+
+/* Contenedor principal */
+.final {
+  width: min(100%, 980px);
+  margin: 2rem auto 7rem; // espacio para el botón fijo inferior
+  display: grid;
+  gap: 2rem;
+}
+
+/* Paneles */
+.cupon,
+.pago,
+.total {
+  background: #202020;
+  border: 1px solid #2b2b2b;
+  border-radius: 12px;
+  padding: 1.4rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,.35);
+}
+
+/* Etiquetas */
+.cupon label,
+.pago label {
+  display: block;
+  font-weight: 700;
+  margin: 0 0 .6rem 0;
+  color: #e6e6e6;
+}
+
+/* Inputs y selects */
+.cupon input,
+.pago select,
+.tarjeta input {
+  width: 100%;
+  padding: .9rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #444;
+  outline: none;
+  background: #fff;
+  color: #111;
+  font-size: 1rem;
+}
+
+/* Botón rojo reutilizable */
+.pago2 {
+  width: 100%;
+  margin-top: .8rem;
+  padding: .85rem 1.1rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 800;
+  background: $color-principal; // rojo de la marca
+  color: #111;
+  cursor: pointer;
+  transition: transform .06s ease, filter .12s ease;
+
+  &:hover { filter: brightness(.95); }
+  &:active { transform: translateY(1px); }
+}
+
+/* Bloque de datos de tarjeta (cuando aplica) */
+.tarjeta {
+  margin-top: 1rem;
+  display: grid;
+  gap: .8rem;
+
+  label {
+    font-weight: 700;
+    color: #e6e6e6;
+  }
+}
+
+/* Total destacado */
+.total h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.2vw + 1rem, 2.2rem);
+  font-weight: 900;
+  color: #f0f0f0;
+
+  #totalPagar {
+    font-weight: 900;
+    color: #ffffff;
+  }
+}
+
+/* Botón fijo inferior “Confirmar Compra” */
+.final > .pago2:last-of-type {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  border-radius: 0;
+  margin: 0;
+  padding: 1rem 2rem;
+  background: $color-principal;
+  color: #111;
+  z-index: 50;
+}
+
+/* Responsivo */
+@media (max-width: 640px) {
+  .final { margin: 1.2rem auto 6.5rem; gap: 1.2rem; }
+  .cupon, .pago, .total { padding: 1rem; }
+}

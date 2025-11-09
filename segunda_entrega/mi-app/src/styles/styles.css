@@ -1,0 +1,458 @@
+@charset "UTF-8";
+header {
+  background-color: #f42c1d;
+  border: 1px solid #00171f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+}
+header h2 {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.logo {
+  vertical-align: middle;
+  display: inline-block;
+  width: 70px;
+  border-radius: 20%;
+}
+
+.cineword {
+  font-size: 3em;
+  font-family: "Alfa Slab One", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #121312;
+}
+
+.perfil {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 20px;
+}
+.perfil img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.perfil span {
+  font-family: "Alfa Slab One", serif;
+}
+
+nav {
+  background-color: #f42c1d;
+  border: 1px solid #00171f;
+  color: #121312;
+  font-family: "Alfa Slab One", serif;
+  text-align: center;
+  font-size: 2em;
+}
+nav a {
+  margin-right: 100px;
+  text-decoration: none;
+  color: inherit;
+}
+nav a:hover {
+  color: #a67d43;
+}
+
+.cabezaind {
+  grid-area: header;
+}
+
+.menuind {
+  grid-area: nav;
+}
+
+.contenidoind {
+  grid-area: main;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas: "header header header header header header" "nav nav nav nav nav nav" "main main main main main main";
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dondeir {
+  text-align: center;
+}
+
+#dondeir a:hover {
+  font-size: 1.4em;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+  text-decoration-color: #f42c1d;
+}
+
+#dondeir h3,
+#dondeir h1 {
+  color: #f42c1d;
+  font-family: "Alfa Slab One", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2em;
+}
+
+.promo img, .anuncio img {
+  width: 100%;
+}
+
+.promo {
+  position: absolute;
+  width: 400px;
+  right: 15px;
+  bottom: 50px;
+}
+
+.anuncio {
+  position: absolute;
+  width: 400px;
+  left: 15px;
+  bottom: 50px;
+}
+
+/* CARTELERA (puede quedar acá si lo tenías junto) */
+.cabezacar {
+  grid-area: header;
+}
+
+.menucar {
+  grid-area: nav;
+}
+
+.busquedacar {
+  grid-area: aside;
+}
+
+.contenidocar {
+  grid-area: main;
+}
+
+.grid-container2 {
+  display: grid;
+  grid-template-areas: "header header header header header header" "nav nav nav nav nav nav" "aside main main main main main";
+  font-family: Arial, Helvetica, sans-serif;
+  gap: 0;
+}
+
+.busquedacar {
+  background-color: #f42c1d;
+  font-family: "Alfa Slab One", serif;
+  font-weight: 400;
+  font-style: normal;
+  height: 100%;
+}
+
+fieldset {
+  border: 2px solid #070709;
+}
+
+.cartelera, .tipos {
+  color: #f42c1d;
+  font-family: "Alfa Slab One", serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+}
+
+.cartelera {
+  font-size: 2em;
+}
+
+.tipos {
+  font-size: 1.5em;
+}
+
+.contenidocom h3 {
+  color: #f42c1d;
+  font-family: "Alfa Slab One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.peliculas, .peliculas2 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.peliculas img, .peliculas2 img {
+  width: 100%;
+}
+
+.produ {
+  width: 350px;
+  border: 1px solid #f42c1d;
+  margin: 5px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.produ h3 {
+  color: #f42c1d;
+}
+
+button {
+  background-color: #070709;
+}
+
+#mostrar-peliculas2 {
+  bottom: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+#nohaynada {
+  color: #f42c1d;
+  font-family: "Alfa Slab One", serif;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.busquedacom {
+  background-color: #f42c1d;
+  font-family: "Alfa Slab One", serif;
+  height: 100%;
+}
+
+.contenidocom p {
+  color: #f42c1d;
+  font-family: "Alfa Slab One", serif;
+  text-align: center;
+}
+
+.com {
+  width: 350px;
+  border: 1px solid #f42c1d;
+  margin: 5px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#mostrar-comida,
+#mostrar-comida2,
+#mostrar-comida3,
+#mostrar-comida4 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+#mostrar-comida img,
+#mostrar-comida2 img,
+#mostrar-comida3 img,
+#mostrar-comida4 img {
+  width: 100%;
+}
+
+.comida {
+  color: #f42c1d;
+  font-family: "Alfa Slab One", serif;
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.maincarri h2 {
+  color: #f42c1d;
+  font-family: "Alfa Slab One", serif;
+  text-align: center;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 25px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+}
+
+.informacionpeli,
+.informacioncomida {
+  flex: 1;
+  background-color: #070709;
+  border: 2px solid #f42c1d;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+button.btnQuitar {
+  background-color: #f42c1d;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button.btnQuitar:hover {
+  background-color: #a61d13;
+  transform: scale(1.05);
+}
+button.total-cuadro {
+  background-color: #f42c1d;
+  color: #070709;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  font-family: "Alfa Slab One", serif;
+  margin-top: 30px;
+}
+button.botonpagar {
+  display: block;
+  width: fit-content;
+  margin: 20px auto;
+  background: #f42c1d;
+  color: #070709;
+  font-family: "Alfa Slab One", serif;
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: 0.3s;
+}
+button.botonpagar:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.maincarri h2 {
+  color: #f42c1d;
+  font-family: "Alfa Slab One", serif;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.maincarri .produ {
+  border: 1px solid #f42c1d;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+.maincarri .produ h3, .maincarri .produ p, .maincarri .produ label {
+  color: #f42c1d;
+  font-family: "Alfa Slab One", serif;
+}
+.maincarri .produ input {
+  background-color: black;
+  color: #f42c1d;
+  border: 1px solid #f42c1d;
+  text-align: center;
+}
+.maincarri .produ .btnQuitar {
+  background-color: #f42c1d;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  font-family: "Alfa Slab One", serif;
+  cursor: pointer;
+}
+.maincarri .produ .btnQuitar:hover {
+  background-color: #f42c1d;
+}
+.maincarri .pagar,
+.maincarri .total-cuadro h3 {
+  color: #f42c1d;
+  font-family: "Alfa Slab One", serif;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.maincarri .botonpagar {
+  display: block;
+  background-color: #f42c1d;
+  color: black;
+  text-align: center;
+  font-family: "Alfa Slab One", serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+  width: fit-content;
+  margin: 20px auto;
+  padding: 10px 25px;
+  border-radius: 10px;
+}
+.maincarri .botonpagar:hover {
+  background-color: #f42c1d;
+}
+
+.final {
+  max-width: 820px;
+  margin: 30px auto 60px;
+  display: grid;
+  gap: 24px;
+  font-family: "Alfa Slab One", serif;
+  color: #f42c1d;
+}
+
+.cupon, .pago, .total {
+  background: #222;
+  border-radius: 12px;
+  padding: 18px;
+  border: 1px solid #333;
+}
+.cupon label, .pago label, .total label {
+  display: block;
+  margin-bottom: 8px;
+  color: #f42c1d;
+}
+.cupon input[type=text], .cupon select, .pago input[type=text], .pago select, .total input[type=text], .total select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #fff;
+  color: #111;
+}
+
+.pago2 {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  border: 0;
+  border-radius: 10px;
+  background: #f42c1d;
+  color: #111;
+  font-family: "Alfa Slab One", serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+.pago2:hover {
+  background: #f42c1d;
+}
+.pago2 .total h2 {
+  margin: 0;
+  font-family: "Alfa Slab One", serif;
+  font-weight: 900;
+  color: #f42c1d;
+}
+.pago2 .total h2 span#totalPagar {
+  font-weight: 900;
+}
+.pago2 .tarjeta {
+  display: none;
+}
+
+body {
+  background-color: #070709;
+}
+
+/*# sourceMappingURL=styles.css.map */

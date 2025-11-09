@@ -1,0 +1,82 @@
+@use 'variables' as *;
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav nav nav"
+    "main main main";
+  font-family: $fuente-principal;
+}
+
+header { grid-area: header; }
+nav { grid-area: nav; }
+main { grid-area: main; }
+
+.dondeir {
+  text-align: center;
+
+  h1, h3 {
+    color: $color-principal;
+    font-weight: 400;
+  }
+
+  a {
+    color: $color-texto;
+    transition: all 0.3s ease;
+
+    &:hover {
+      font-size: 1.2em;
+      text-decoration: underline;
+      text-decoration-color: $color-principal;
+    }
+  }
+}
+
+.cineword {
+  display: flex;
+  align-items: center;        
+  justify-content: center;    
+  gap: 15px;                  
+  text-align: left;
+  padding: 20px;
+
+  img {
+    width: 70px;              
+    height: auto;
+    border-radius: $radio;
+    box-shadow: $sombra;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    color: black;             
+    font-family: $fuente-principal;
+    letter-spacing: 1px;
+    margin: 0;
+  }
+}
+
+
+
+.promo, .anuncio {
+  position: absolute;
+  width: 400px;
+  bottom: 50px;
+
+  img {
+    width: 100%;
+    border-radius: $radio;
+    box-shadow: $sombra;
+  }
+}
+
+.promo { right: 15px; }
+.anuncio { left: 15px; }
+
+#nohaynada {
+  color: $color-principal;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 30px;
+}

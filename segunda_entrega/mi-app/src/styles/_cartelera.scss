@@ -1,0 +1,77 @@
+@use 'variables' as *;
+
+.grid-container2 {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav nav nav"
+    "aside main main";
+  font-family: $fuente-principal;
+  gap: 0;
+  min-height: 100vh;
+}
+
+.cartelera-page {
+  .cineword {
+    color: $color-secundario;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
+header { grid-area: header; }
+nav { grid-area: nav; }
+aside { grid-area: aside; }
+main { grid-area: main; }
+
+aside {
+  background-color: $color-secundario;
+  padding: 20px;
+  color: $color-texto;
+}
+
+fieldset {
+  border: 2px solid $color-principal;
+  border-radius: $radio;
+  padding: 10px;
+}
+
+.cartelera, .tipos {
+  color: $color-principal;
+  text-align: center;
+  font-weight: 400;
+}
+
+.cartelera { font-size: 2em; }
+.tipos { font-size: 1.3em; }
+
+.peliculas, .peliculas2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 20px;
+}
+
+.produ {
+  border: 1px solid $color-borde;
+  border-radius: $radio;
+  text-align: center;
+  padding: 15px;
+  background-color: $color-secundario;
+  box-shadow: $sombra;
+
+  img {
+    width: 100%;
+    border-radius: $radio;
+  }
+
+  h3 {
+    color: $color-principal;
+    margin-top: 10px;
+  }
+}
+
+button {
+  background-color: $color-principal;
+  margin-top:10px;
+}

@@ -1,0 +1,123 @@
+@use 'variables' as *;
+
+.carrito-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-fondo;
+  color: $color-texto;
+
+  .carri {
+    background-color: $color-principal;
+    padding: 20px;
+    text-align: center;
+
+    .cineword {
+      color: $color-secundario;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  }
+
+  .maincarri {
+    flex: 1;
+    padding: 30px;
+    text-align: center;
+
+    h2 {
+      color: $color-principal;
+      margin-bottom: 25px;
+    }
+
+    .contenedor {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 40px;
+
+      .informacionpeli,
+      .informacioncomida {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .produ {
+        background-color: $color-secundario;
+        border-radius: $radio;
+        box-shadow: $sombra;
+        padding: 15px;
+        width: 250px;
+        text-align: center;
+
+        img {
+          width: 120px;   
+          height: auto;
+          border-radius: 8px;
+          margin-bottom: 10px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        h3 {
+          color: $color-principal;
+          font-size: 1.1rem;
+          margin-bottom: 5px;
+        }
+
+        p {
+          margin: 3px 0;
+          font-size: 0.95rem;
+        }
+
+        input {
+          width: 60px;
+          padding: 5px;
+          text-align: center;
+          margin-top: 5px;
+        }
+
+        button {
+          margin-top: 10px;
+          background-color: $color-principal;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          padding: 8px 12px;
+          cursor: pointer;
+          transition: 0.2s;
+
+          &:hover {
+            background-color: $color-principal;
+          }
+        }
+      }
+    }
+
+    .totaldiv {
+      margin-top: 20px;
+      text-align: center;
+
+      h3 {
+        color: $color-principal;
+        margin-bottom: 15px;
+      }
+
+      .botonpagar {
+        background-color: $color-principal;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: 0.3s;
+
+        &:hover {
+          background-color: $color-principal;
+        }
+      }
+    }
+  }
+}
