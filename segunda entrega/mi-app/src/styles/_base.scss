@@ -6,28 +6,26 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: $color-fondo;
   color: $color-texto;
   font-family: $fuente-principal;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 h1, h2, h3 {
   color: $color-principal;
   text-align: center;
   margin: 20px 0;
-}
-
-button {
-  font-family: $fuente-principal;
-  background-color: $color-principal;
-  border: none;
-  padding: 10px 20px;
-  border-radius: $radio;
-  cursor: pointer;
-  transition: 0.3s;
-
-  &:hover {
-    background-color: darken($color-principal, 10%);
-  }
 }

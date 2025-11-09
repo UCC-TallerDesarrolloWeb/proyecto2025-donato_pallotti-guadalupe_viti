@@ -1,36 +1,50 @@
 @use 'variables' as *;
 
 .carrito {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
   text-align: center;
-  padding: 30px;
 
-  .productos-seleccionados {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
+  h2 {
+    color: $color-principal;
+    margin-bottom: 20px;
+  }
 
-    .item {
-      border: 2px solid $color-principal;
+  table {
+    width: 80%;
+    border-collapse: collapse;
+    background-color: $color-secundario;
+    box-shadow: $sombra;
+    border-radius: $radio;
+    overflow: hidden;
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid $color-borde;
+      color: $color-texto;
+    }
+
+    th {
       background-color: $color-secundario;
-      padding: 15px;
-      border-radius: $radio;
-      width: 300px;
+      color: $color-principal;
+    }
 
-      img {
-        width: 100%;
-        border-radius: $radio;
-      }
-
-      h4, p {
-        color: $color-principal;
-      }
+    tr:last-child td {
+      border-bottom: none;
     }
   }
 
   .total {
-    margin-top: 30px;
-    font-size: 1.5rem;
+    margin-top: 20px;
+    font-size: 1.2rem;
     color: $color-principal;
+  }
+
+  button {
+    margin-top: 15px;
   }
 }

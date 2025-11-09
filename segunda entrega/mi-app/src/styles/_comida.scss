@@ -1,29 +1,50 @@
 @use 'variables' as *;
 
 .comida {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
   text-align: center;
-  padding: 30px;
 
-  .productos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
+  h2 {
+    color: $color-principal;
+    margin-bottom: 20px;
+  }
 
-    .producto {
+  .menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    width: 100%;
+    max-width: 1000px;
+
+    .plato {
       background-color: $color-secundario;
-      border: 2px solid $color-principal;
-      padding: 15px;
       border-radius: $radio;
-      width: 280px;
+      padding: 15px;
+      box-shadow: $sombra;
+      width: 220px;
 
       img {
         width: 100%;
         border-radius: $radio;
       }
 
-      h4 {
+      h3 {
+        margin: 10px 0;
         color: $color-principal;
+      }
+
+      p {
+        color: $color-texto;
+        font-size: 0.9rem;
+      }
+
+      button {
         margin-top: 10px;
       }
     }

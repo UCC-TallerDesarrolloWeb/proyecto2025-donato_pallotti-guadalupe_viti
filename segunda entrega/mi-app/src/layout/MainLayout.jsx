@@ -1,3 +1,4 @@
+
 import { Outlet } from "react-router-dom";
 import "@styles/styles.scss";
 
@@ -7,7 +8,7 @@ export default function MainLayout() {
             <header>
                 <div className="cineword">
                     <h1>CineWorld</h1>
-                    <img src="/cineworld-logo.png" alt="Logo CineWorld" />
+                    <img src="/imagenes/logo.jpg" alt="Logo CineWorld" />
                 </div>
 
                 <nav>

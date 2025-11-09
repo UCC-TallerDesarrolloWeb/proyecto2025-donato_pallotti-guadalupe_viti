@@ -5,7 +5,7 @@ export default function HomePage() {
                 <h1>Bienvenido, ¿qué haremos primero?</h1>
                 <ul>
                     <li>
-                        <a href="/"> {/* si querés, luego cambiamos por <Link to="/"> */}
+                        <a href="/">
                             <h3>Principal</h3>
                         </a>
                     </li>
