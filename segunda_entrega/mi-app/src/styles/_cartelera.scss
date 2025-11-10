@@ -19,10 +19,21 @@
   }
 }
 
-header { grid-area: header; }
-nav { grid-area: nav; }
-aside { grid-area: aside; }
-main { grid-area: main; }
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: nav;
+}
+
+aside {
+  grid-area: aside;
+}
+
+main {
+  grid-area: main;
+}
 
 aside {
   background-color: $color-secundario;
@@ -42,8 +53,13 @@ fieldset {
   font-weight: 400;
 }
 
-.cartelera { font-size: 2em; }
-.tipos { font-size: 1.3em; }
+.cartelera {
+  font-size: 2em;
+}
+
+.tipos {
+  font-size: 1.3em;
+}
 
 .peliculas, .peliculas2 {
   display: grid;
@@ -73,5 +89,5 @@ fieldset {
 
 button {
   background-color: $color-principal;
-  margin-top:10px;
+  margin-top: 10px;
 }

@@ -9,9 +9,17 @@
   font-family: $fuente-principal;
 }
 
-header { grid-area: header; }
-nav { grid-area: nav; }
-main { grid-area: main; }
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+}
 
 .dondeir {
   text-align: center;
@@ -35,14 +43,14 @@ main { grid-area: main; }
 
 .cineword {
   display: flex;
-  align-items: center;        
-  justify-content: center;    
-  gap: 15px;                  
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
   text-align: left;
   padding: 20px;
 
   img {
-    width: 70px;              
+    width: 70px;
     height: auto;
     border-radius: $radio;
     box-shadow: $sombra;
@@ -50,13 +58,12 @@ main { grid-area: main; }
 
   h1 {
     font-size: 2.5rem;
-    color: black;             
+    color: black;
     font-family: $fuente-principal;
     letter-spacing: 1px;
     margin: 0;
   }
 }
-
 
 
 .promo, .anuncio {
@@ -71,8 +78,13 @@ main { grid-area: main; }
   }
 }
 
-.promo { right: 15px; }
-.anuncio { left: 15px; }
+.promo {
+  right: 15px;
+}
+
+.anuncio {
+  left: 15px;
+}
 
 #nohaynada {
   color: $color-principal;

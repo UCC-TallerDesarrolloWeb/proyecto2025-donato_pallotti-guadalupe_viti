@@ -1,5 +1,6 @@
 // ====== PÁGINA DE PAGO ======
 @use 'variables' as *;
+
 .pago-page {
   background: #0b0b0b;
   min-height: 100vh;
@@ -8,7 +9,10 @@
 
   // header de esta página (el fondo rojo lo da _header.scss)
   .cabezaind {
-    .cineword { color: black; margin: 0; }
+    .cineword {
+      color: black;
+      margin: 0;
+    }
   }
 }
 
@@ -28,7 +32,7 @@
   border: 1px solid #2b2b2b;
   border-radius: 12px;
   padding: 1.4rem;
-  box-shadow: 0 6px 20px rgba(0,0,0,.35);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .35);
 }
 
 /* Etiquetas */
@@ -67,8 +71,13 @@
   cursor: pointer;
   transition: transform .06s ease, filter .12s ease;
 
-  &:hover { filter: brightness(.95); }
-  &:active { transform: translateY(1px); }
+  &:hover {
+    filter: brightness(.95);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
 }
 
 /* Bloque de datos de tarjeta (cuando aplica) */
@@ -99,7 +108,9 @@
 /* Botón fijo inferior “Confirmar Compra” */
 .final > .pago2:last-of-type {
   position: fixed;
-  left: 0; right: 0; bottom: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   border-radius: 0;
   margin: 0;
   padding: 1rem 2rem;
@@ -110,6 +121,11 @@
 
 /* Responsivo */
 @media (max-width: 640px) {
-  .final { margin: 1.2rem auto 6.5rem; gap: 1.2rem; }
-  .cupon, .pago, .total { padding: 1rem; }
+  .final {
+    margin: 1.2rem auto 6.5rem;
+    gap: 1.2rem;
+  }
+  .cupon, .pago, .total {
+    padding: 1rem;
+  }
 }
